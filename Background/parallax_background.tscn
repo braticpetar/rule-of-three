@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://csqsrrpx75ilu"]
+
+[ext_resource type="Texture2D" uid="uid://covwhye1afadw" path="res://Background/background.png" id="1_twyx0"]
+[ext_resource type="Texture2D" uid="uid://3jbrujthhvxq" path="res://Background/sun.png" id="2_abdff"]
+[ext_resource type="Texture2D" uid="uid://bjtivnbedbtt8" path="res://Background/city4plan.png" id="3_f84uq"]
+[ext_resource type="Texture2D" uid="uid://bqx6v5tedvo6k" path="res://Background/city3plan.png" id="4_7d6gd"]
+[ext_resource type="Texture2D" uid="uid://c6f0nnwpxrkgu" path="res://Background/city2plan.png" id="5_8amlm"]
+[ext_resource type="Texture2D" uid="uid://b6tongld4uk8m" path="res://Background/city1plan.png" id="6_6xg41"]
+[ext_resource type="Texture2D" uid="uid://cn1hgm8syitgg" path="res://Background/smog1.png" id="7_7l3ev"]
+
+[node name="ParallaxBackground" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(630, 360)
+transform = Transform2D(1, 0, 0, 1, 630, 360)
+
+[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/background"]
+texture = ExtResource("1_twyx0")
+
+[node name="sun" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(337, -386)
+scale = Vector2(2, 2)
+texture = ExtResource("2_abdff")
+
+[node name="city-plan-4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/city-plan-4"]
+texture = ExtResource("3_f84uq")
+
+[node name="city-plan-3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/city-plan-3"]
+texture = ExtResource("4_7d6gd")
+
+[node name="city-plan-2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/city-plan-2"]
+texture = ExtResource("5_8amlm")
+
+[node name="city-plan-1" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/city-plan-1"]
+texture = ExtResource("6_6xg41")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+offset = Vector2(630, 360)
+transform = Transform2D(1, 0, 0, 1, 630, 360)
+
+[node name="smog" type="ParallaxLayer" parent="ParallaxBackground2"]
+scale = Vector2(2, 2)
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/smog"]
+texture_filter = 1
+texture = ExtResource("7_7l3ev")
