@@ -12,6 +12,10 @@ func process(_delta: float) -> void:
 	animation.play("walk")
 	player.handle_facing()
 	
+func exit() -> void:
+	player.velocity = Vector2(0, 0)
+	
+	
 func physics_process(_delta: float) -> void:
 	var input: float = player.horizontal_input * ACCELERATION
 	

@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 # Function for transitioning between states
 func transition(new_state_name: String) -> void:
 	var new_state: State = states.get(new_state_name)
-	var current_state_name = current_state.get_state_name()
+	#var current_state_name = current_state.get_state_name()
 	
 	if new_state == null:
 		# New state cannot be null
