@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://bvli3xctfxair"]
+[gd_scene load_steps=46 format=3 uid="uid://bvli3xctfxair"]
 
+[ext_resource type="Script" uid="uid://cng3lployx2r" path="res://Player/player_controller.gd" id="1_aolgh"]
 [ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://Player/blood-demon.png" id="1_jwvdf"]
-[ext_resource type="Script" uid="uid://dqhc0sodfy834" path="res://Player/blood_demon.gd" id="1_ljr2e"]
+[ext_resource type="Script" uid="uid://oh6appk8t360" path="res://Core/state_machine.gd" id="3_n604i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljr2e"]
 atlas = ExtResource("1_jwvdf")
@@ -317,16 +318,21 @@ height = 20.0
 
 [node name="Blood Demon" type="CharacterBody2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_ljr2e")
+script = ExtResource("1_aolgh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"hurt"
+animation = &"idle"
+frame = 5
+frame_progress = 0.317092
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(1.5, 6)
 shape = SubResource("CapsuleShape2D_ua2pn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(206.5, -106.5)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_n604i")
