@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3jbrujthhvxq"
-path="res://.godot/imported/sun.png-8be768afc944ec87d0b35fa023afa609.ctex"
+uid="uid://c6f0nnwpxrkgu"
+path="res://.godot/imported/city2plan.png-a0bfc8166cfc588f58f3ab3002e8294e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/sun.png"
-dest_files=["res://.godot/imported/sun.png-8be768afc944ec87d0b35fa023afa609.ctex"]
+source_file="res://sun_city/city2plan.png"
+dest_files=["res://.godot/imported/city2plan.png-a0bfc8166cfc588f58f3ab3002e8294e.ctex"]
 
 [params]
 

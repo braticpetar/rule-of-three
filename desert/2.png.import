@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjtivnbedbtt8"
-path="res://.godot/imported/city4plan.png-e0abad80d988500524e15276bc8b4d3b.ctex"
+uid="uid://8t0j43tytk2f"
+path="res://.godot/imported/2.png-52436d4779e36e35d28b6164b38ef056.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/city4plan.png"
-dest_files=["res://.godot/imported/city4plan.png-e0abad80d988500524e15276bc8b4d3b.ctex"]
+source_file="res://desert/2.png"
+dest_files=["res://.godot/imported/2.png-52436d4779e36e35d28b6164b38ef056.ctex"]
 
 [params]
 

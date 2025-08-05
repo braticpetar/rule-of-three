@@ -1,8 +1,8 @@
 [gd_scene load_steps=46 format=3 uid="uid://bvli3xctfxair"]
 
-[ext_resource type="Script" uid="uid://cng3lployx2r" path="res://Player/player_controller.gd" id="1_aolgh"]
-[ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://Player/blood-demon.png" id="1_jwvdf"]
-[ext_resource type="Script" uid="uid://oh6appk8t360" path="res://Core/state_machine.gd" id="3_n604i"]
+[ext_resource type="Script" uid="uid://cng3lployx2r" path="res://player/player_controller.gd" id="1_aolgh"]
+[ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://player/blood-demon.png" id="1_jwvdf"]
+[ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_n604i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljr2e"]
 atlas = ExtResource("1_jwvdf")
@@ -329,6 +329,7 @@ frame = 5
 frame_progress = 0.317092
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(44, -17)
 shape = SubResource("CapsuleShape2D_ua2pn")
 

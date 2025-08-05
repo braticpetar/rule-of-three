@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3tshyceodrw1"]
+
+[ext_resource type="Texture2D" uid="uid://bccgubo6sd686" path="res://wasteland/WCP_1.png" id="1_4ufdh"]
+[ext_resource type="Texture2D" uid="uid://t4f503h1af0c" path="res://wasteland/WCP_2.png" id="2_0e8m2"]
+[ext_resource type="Texture2D" uid="uid://cux5o718ulnnq" path="res://wasteland/WCP_3.png" id="3_a8egj"]
+[ext_resource type="Texture2D" uid="uid://c13rycultbgmj" path="res://wasteland/WCP_4.png" id="4_jt784"]
+[ext_resource type="Texture2D" uid="uid://3t8sbyudby22" path="res://wasteland/WCP_5.png" id="5_ivnir"]
+[ext_resource type="Texture2D" uid="uid://b5dl6coqeyodv" path="res://sun_city/floor.png" id="6_0e8m2"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scale = Vector2(1.45, 1.45)
+transform = Transform2D(1.45, 0, 0, 1.45, 0, 0)
+
+[node name="background" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+texture = ExtResource("1_4ufdh")
+centered = false
+
+[node name="city4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1075, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city4"]
+texture = ExtResource("2_0e8m2")
+centered = false
+
+[node name="city3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1075, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city3"]
+texture = ExtResource("3_a8egj")
+centered = false
+
+[node name="city2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1075, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city2"]
+texture = ExtResource("4_jt784")
+centered = false
+
+[node name="city1" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1075, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city1"]
+texture = ExtResource("5_ivnir")
+centered = false
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(40.6897, 485.517)
+texture = ExtResource("6_0e8m2")
+
+[node name="Floor" type="Sprite2D" parent="Floor"]
+position = Vector2(80, -1.14441e-05)
+texture = ExtResource("6_0e8m2")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxugbu6iecm8w"]
+
+[ext_resource type="Texture2D" uid="uid://bi37qupxpst1i" path="res://desert/1.png" id="1_mekps"]
+[ext_resource type="Texture2D" uid="uid://8t0j43tytk2f" path="res://desert/2.png" id="2_otkim"]
+[ext_resource type="Texture2D" uid="uid://b3rcdwdhkwmvr" path="res://desert/3.png" id="3_frm3e"]
+[ext_resource type="Texture2D" uid="uid://bffvryw5dl0qe" path="res://desert/4.png" id="4_wafgm"]
+[ext_resource type="Texture2D" uid="uid://bcsva7aacvbl3" path="res://desert/5.png" id="5_atv6b"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="background" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+texture_filter = 1
+texture = ExtResource("1_mekps")
+centered = false
+
+[node name="city4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.07, 0.07)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city4"]
+texture_filter = 3
+texture = ExtResource("2_otkim")
+centered = false
+
+[node name="city3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city3"]
+texture_filter = 1
+texture = ExtResource("3_frm3e")
+centered = false
+
+[node name="city2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.17, 0.17)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city2"]
+texture_filter = 1
+texture = ExtResource("4_wafgm")
+centered = false
+
+[node name="city1" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city1"]
+texture_filter = 3
+texture = ExtResource("5_atv6b")
+centered = false

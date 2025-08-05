@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csykevr8oxurs"
-path="res://.godot/imported/smog2.png-5288b7e7f75fbe9741c01521a07ae457.ctex"
+uid="uid://3t8sbyudby22"
+path="res://.godot/imported/WCP_5.png-9b2fd37ab7bef9601c00f8ec54938baf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/smog2.png"
-dest_files=["res://.godot/imported/smog2.png-5288b7e7f75fbe9741c01521a07ae457.ctex"]
+source_file="res://wasteland/WCP_5.png"
+dest_files=["res://.godot/imported/WCP_5.png-9b2fd37ab7bef9601c00f8ec54938baf.ctex"]
 
 [params]
 

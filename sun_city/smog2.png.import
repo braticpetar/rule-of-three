@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6tongld4uk8m"
-path="res://.godot/imported/city1plan.png-3086630918f00fbba637b3965c73e669.ctex"
+uid="uid://csykevr8oxurs"
+path="res://.godot/imported/smog2.png-642a700849eeaec655497f3a01598510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/city1plan.png"
-dest_files=["res://.godot/imported/city1plan.png-3086630918f00fbba637b3965c73e669.ctex"]
+source_file="res://sun_city/smog2.png"
+dest_files=["res://.godot/imported/smog2.png-642a700849eeaec655497f3a01598510.ctex"]
 
 [params]
 
