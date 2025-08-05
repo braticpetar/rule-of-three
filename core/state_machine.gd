@@ -35,4 +35,3 @@ func transition(new_state_name: String) -> void:
 		current_state.exit()
 		current_state = states[new_state.get_state_name()]
 		current_state.enter()
-		

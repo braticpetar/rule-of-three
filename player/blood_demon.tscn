@@ -324,9 +324,8 @@ script = ExtResource("1_aolgh")
 texture_filter = 1
 position = Vector2(40.6667, -35.3333)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"idle"
-frame = 5
-frame_progress = 0.317092
+animation = &"attack"
+frame = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -338,3 +337,5 @@ position = Vector2(206.5, -106.5)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_n604i")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
