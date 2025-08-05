@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csykevr8oxurs"
-path="res://.godot/imported/smog2.png-642a700849eeaec655497f3a01598510.ctex"
+path="res://.godot/imported/smog2.png-296388095a18da54c1ded69d600a07c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sun_city/smog2.png"
-dest_files=["res://.godot/imported/smog2.png-642a700849eeaec655497f3a01598510.ctex"]
+source_file="res://smog/smog2.png"
+dest_files=["res://.godot/imported/smog2.png-296388095a18da54c1ded69d600a07c0.ctex"]
 
 [params]
 

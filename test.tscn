@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctvhajonytf2u"]
+[gd_scene load_steps=5 format=3 uid="uid://ctvhajonytf2u"]
 
 [ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://player/blood_demon.tscn" id="1_8uh7m"]
-[ext_resource type="PackedScene" uid="uid://b3tshyceodrw1" path="res://wasteland/wasteland.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://b4kvbq5h01ef1" path="res://sun_city/sun_city.tscn" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://bxugbu6iecm8w" path="res://desert/desert.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://dvcoy03gv6p00" path="res://smog/smog.tscn" id="3_ppyta"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="sun_city" parent="." instance=ExtResource("2_6uqi0")]
+
 [node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
-position = Vector2(12, 677)
+position = Vector2(10, 676)
+
+[node name="smog" parent="." instance=ExtResource("3_ppyta")]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_8uh7m")]
