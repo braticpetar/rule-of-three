@@ -19,6 +19,7 @@ texture = ExtResource("1_wr50x")
 centered = false
 
 [node name="sun" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(496.5, -10.5)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_e0wl5")

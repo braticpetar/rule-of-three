@@ -317,18 +317,19 @@ radius = 4.0
 height = 20.0
 
 [node name="Blood Demon" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_aolgh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(43, -23)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
 animation = &"idle"
 frame = 5
 frame_progress = 0.317092
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 6)
+position = Vector2(44, -17)
 shape = SubResource("CapsuleShape2D_ua2pn")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctvhajonytf2u"]
+
+[ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://Player/blood_demon.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://b4kvbq5h01ef1" path="res://Background/parallax_background.tscn" id="2_6uqi0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_6uqi0")]
+
+[node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
+position = Vector2(214, 576)
