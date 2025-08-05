@@ -10,10 +10,3 @@ func enter() -> void:
 	player.velocity = Vector2(0,0)
 	player.position += player.dissolve_distance
 	animation.play_backwards("dissolve")	
-
-		
-	
-	
-	
-	
-	

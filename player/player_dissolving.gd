@@ -8,6 +8,11 @@ func get_state_name() -> String:
 func enter() -> void:
 	player.velocity = Vector2(0,0)
 	animation.play("dissolve")
+	
+func exit() -> void:
+	player.velocity = Vector2(0,0)
+	player.position += player.dissolve_distance
+	animation.play_backwards("dissolve")	
 
 	
 	
