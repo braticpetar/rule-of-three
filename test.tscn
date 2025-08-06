@@ -13,6 +13,6 @@
 visible = false
 
 [node name="Ghost" parent="." instance=ExtResource("4_ppyta")]
-position = Vector2(733, 579)
+position = Vector2(733, 573)
 
 [node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]

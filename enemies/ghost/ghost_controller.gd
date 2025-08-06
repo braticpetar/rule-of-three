@@ -6,10 +6,12 @@ enum Facing {
 }
 
 var _facing: Facing = Facing.RIGHT
+var health = 10
 
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
-@onready var collision_shape = $CollisionShape2D
+@onready var area = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
+#@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
 	var states: Array[State] = [GhostIdleState.new(self)]
@@ -26,4 +28,5 @@ func handle_facing() -> void:
 		animation.flip_h = false
 		_facing = Facing.RIGHT
 
-		
+func take_damage(amount: int) -> void:
+	print(health)

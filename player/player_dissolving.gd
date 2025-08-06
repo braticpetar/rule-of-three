@@ -11,7 +11,7 @@ func enter() -> void:
 	
 	# Enable for smooth camera transition
 	player.camera.position_smoothing_enabled = true
-	player.camera.position_smoothing_speed = 20.0
+	player.camera.position_smoothing_speed = 10.0
 	
 func exit() -> void:
 	# Play correct animation

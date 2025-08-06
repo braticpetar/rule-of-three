@@ -15,7 +15,7 @@ var attack_count: int = 0 # We use this variable to determine is attack combo ne
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var camera = $Camera2D
-@onready var collision_shape = $CollisionShape2D
+@onready var light_sword_collision = $AnimatedSprite2D/CustomHitBox
 
 func _ready() -> void:
 	# We initialize the array with all states and start the machine
@@ -25,7 +25,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# We get horizontal input to determine x value of position vector, as well as direction player is facing
 	horizontal_input = Input.get_action_strength("right") - Input.get_action_strength("left")
-	
 	move_and_slide() # Mandatory function for movement in physics process
 
 # Handilng user input

@@ -1,12 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://bvli3xctfxair"]
+[gd_scene load_steps=46 format=3 uid="uid://bvli3xctfxair"]
 
 [ext_resource type="Script" uid="uid://cng3lployx2r" path="res://player/player_controller.gd" id="1_aolgh"]
 [ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://player/blood-demon.png" id="1_jwvdf"]
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_n604i"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ua2pn"]
-radius = 12.0
-height = 58.0
+[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="4_58fft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7gcp"]
 atlas = ExtResource("1_jwvdf")
@@ -35,18 +32,6 @@ region = Rect2(1536, 256, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ds1p4"]
 atlas = ExtResource("1_jwvdf")
 region = Rect2(1664, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljr2e"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(0, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aolgh"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(128, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n604i"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(256, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcwwy"]
 atlas = ExtResource("1_jwvdf")
@@ -202,15 +187,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ljr2e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aolgh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n604i")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vcwwy")
 }, {
 "duration": 1.0,
@@ -328,23 +304,35 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58fft"]
+size = Vector2(105, 62)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7gcp"]
+height = 82.0
+
 [node name="Blood Demon" type="CharacterBody2D"]
 script = ExtResource("1_aolgh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(496, 595)
-shape = SubResource("CapsuleShape2D_ua2pn")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_n604i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(212, 554)
+position = Vector2(363, 554)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"dissolve"
+animation = &"attack_light"
+frame = 1
+
+[node name="CustomHitBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(35, -7.75)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("4_58fft")
+metadata/_custom_type_script = "uid://b1u1246plg80p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CustomHitBox"]
+position = Vector2(-68.5, 59)
+shape = SubResource("RectangleShape2D_58fft")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -352,5 +340,9 @@ process_callback = 0
 limit_top = 0
 limit_bottom = 720
 editor_draw_limits = true
+
+[node name="Body Collision" type="CollisionShape2D" parent="."]
+position = Vector2(371, 577)
+shape = SubResource("CapsuleShape2D_y7gcp")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
