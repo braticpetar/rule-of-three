@@ -9,11 +9,10 @@
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_8uh7m")]
 
-[node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
-position = Vector2(9, 2)
-
-[node name="Ghost" parent="." instance=ExtResource("4_ppyta")]
-position = Vector2(740, 594)
-
 [node name="sun_city" parent="." instance=ExtResource("2_6uqi0")]
 visible = false
+
+[node name="Ghost" parent="." instance=ExtResource("4_ppyta")]
+position = Vector2(733, 579)
+
+[node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
