@@ -6,13 +6,15 @@ func get_state_name() -> String:
 	return state_name
 	
 func enter() -> void:
-	player.velocity = Vector2(0,0)
-	animation.play("dissolve")
+	player.velocity = Vector2(0,0) # Stop moving
 	
-func exit() -> void:
-	player.velocity = Vector2(0,0)
-	player.position += player.dissolve_distance
-	animation.play_backwards("dissolve")	
+	# Enable for smooth camera transition
+	player.camera.position_smoothing_enabled = true
+	player.camera.position_smoothing_speed = 20.0
+	
+	# Play correct animation
+	animation.play("dissolve")
+		
 
 	
 	

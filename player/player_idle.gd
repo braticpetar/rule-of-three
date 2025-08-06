@@ -2,11 +2,6 @@ class_name PlayerIdleState extends PlayerState
 
 static var state_name = "PlayerIdleState"
 
-const STOP_FORCE: float = 15.0
-
-func enter() -> void:
-	player.velocity = Vector2(0, 0)
-
 func get_state_name() -> String:
 	return state_name
 	

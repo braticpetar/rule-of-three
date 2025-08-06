@@ -8,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b6tongld4uk8m" path="res://levels/sun_city/city1plan.png" id="6_dkdev"]
 
 [node name="sun_city" type="ParallaxBackground"]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
 scroll_ignore_camera_zoom = true
 
 [node name="background" type="ParallaxLayer" parent="."]
