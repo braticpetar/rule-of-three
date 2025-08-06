@@ -9,6 +9,7 @@ enum Facing {
 var horizontal_input: float = 0.0 # Used for character movement
 var dissolve_distance: Vector2 # Used for teleportation
 var _facing: Facing = Facing.RIGHT # Setting default value that character is facing right
+var attack_count: int = 0
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D
@@ -18,7 +19,7 @@ var _facing: Facing = Facing.RIGHT # Setting default value that character is fac
 
 func _ready() -> void:
 	# We initialize the array with all states and start the machine
-	var states: Array[State] = [PlayerIdleState.new(self), PlayerRunningState.new(self), PlayerAttackingState.new(self), PlayerDissolvingState.new(self), PlayerCondensingState.new(self)]
+	var states: Array[State] = [PlayerIdleState.new(self), PlayerRunningState.new(self), PlayerLightAttackingState.new(self), PlayerDissolvingState.new(self), PlayerCondensingState.new(self), PlayerHeavyAttackingState.new(self)]
 	state_machine.start_machine(states)
 	
 func _physics_process(delta: float) -> void:
@@ -31,7 +32,8 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	# Switch to attack state if player pressed attack button
 	if event.is_action_pressed("attack"):
-		state_machine.transition(PlayerAttackingState.state_name)
+		attack_count += 1
+		state_machine.transition(PlayerLightAttackingState.state_name)
 		
 	# Player needs to hold "dissolve" and then determine the direction
 	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("up"):
@@ -62,6 +64,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	# Only if player dissolved, transition to condense
 	if state_machine.current_state.get_state_name() == PlayerDissolvingState.state_name:
 		state_machine.transition(PlayerCondensingState.state_name)
+	# If attack combo is scheduled, then chain light and heavy attacks
+	if state_machine.current_state.get_state_name() == PlayerLightAttackingState.state_name and attack_count > 1:
+		state_machine.transition(PlayerHeavyAttackingState.state_name)
 	# In any other case, go back to idle state
 	else:
 		state_machine.transition(PlayerIdleState.state_name)

@@ -4,6 +4,9 @@ static var state_name = "PlayerIdleState"
 
 func get_state_name() -> String:
 	return state_name
+
+func enter() -> void:
+	player.attack_count = 0
 	
 func process(_delta: float) -> void:
 	animation.play("idle")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bvli3xctfxair"]
+[gd_scene load_steps=47 format=3 uid="uid://bvli3xctfxair"]
 
 [ext_resource type="Script" uid="uid://cng3lployx2r" path="res://player/player_controller.gd" id="1_aolgh"]
 [ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://player/blood-demon.png" id="1_jwvdf"]
@@ -7,6 +7,34 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ua2pn"]
 radius = 12.0
 height = 58.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7gcp"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(896, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58fft"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1024, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ug5r"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1152, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vdlb"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1280, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncfgy"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1408, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgn06"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1536, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds1p4"]
+atlas = ExtResource("1_jwvdf")
+region = Rect2(1664, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljr2e"]
 atlas = ExtResource("1_jwvdf")
@@ -39,30 +67,6 @@ region = Rect2(768, 256, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_frfxo"]
 atlas = ExtResource("1_jwvdf")
 region = Rect2(896, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr8hs"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1024, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xadwm"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1152, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_odabc"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1280, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0j3wt"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1408, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pdka"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1536, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_78sm4"]
-atlas = ExtResource("1_jwvdf")
-region = Rect2(1664, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n01w"]
 atlas = ExtResource("1_jwvdf")
@@ -172,6 +176,32 @@ region = Rect2(896, 128, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y7gcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58fft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ug5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vdlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncfgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgn06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds1p4")
+}],
+"loop": false,
+"name": &"attack_heavy",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ljr2e")
 }, {
 "duration": 1.0,
@@ -194,27 +224,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_frfxo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fr8hs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xadwm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_odabc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0j3wt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pdka")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_78sm4")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"attack_light",
 "speed": 10.0
 }, {
 "frames": [{
@@ -332,7 +344,9 @@ texture_filter = 1
 position = Vector2(212, 554)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"dissolve"
+animation = &"attack_heavy"
+frame = 3
+frame_progress = 0.0575478
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
