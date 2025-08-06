@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqx6v5tedvo6k"
-path="res://.godot/imported/city3plan.png-70bed0346c29fe7536ead13db61e7856.ctex"
+uid="uid://bcsva7aacvbl3"
+path="res://.godot/imported/5.png-497830be6c2faa95b4781464cc147f89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sun_city/city3plan.png"
-dest_files=["res://.godot/imported/city3plan.png-70bed0346c29fe7536ead13db61e7856.ctex"]
+source_file="res://levels/desert/5.png"
+dest_files=["res://.godot/imported/5.png-497830be6c2faa95b4781464cc147f89.ctex"]
 
 [params]
 

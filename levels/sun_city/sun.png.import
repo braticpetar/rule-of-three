@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t4f503h1af0c"
-path="res://.godot/imported/WCP_2.png-22116a687f417c677d858937a0b0eafc.ctex"
+uid="uid://3jbrujthhvxq"
+path="res://.godot/imported/sun.png-1345851d64aa59bca9495a3a32764007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wasteland/WCP_2.png"
-dest_files=["res://.godot/imported/WCP_2.png-22116a687f417c677d858937a0b0eafc.ctex"]
+source_file="res://levels/sun_city/sun.png"
+dest_files=["res://.godot/imported/sun.png-1345851d64aa59bca9495a3a32764007.ctex"]
 
 [params]
 

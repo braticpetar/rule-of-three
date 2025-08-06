@@ -313,28 +313,31 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ua2pn"]
-radius = 4.0
-height = 20.0
+radius = 12.0
+height = 58.0
 
 [node name="Blood Demon" type="CharacterBody2D"]
-scale = Vector2(3, 3)
 script = ExtResource("1_aolgh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40.6667, -35.3333)
+position = Vector2(489, 577)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
 animation = &"dissolve"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(44, -17)
+position = Vector2(496, 595)
 shape = SubResource("CapsuleShape2D_ua2pn")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(206.5, -106.5)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_n604i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_top = 0
+limit_bottom = 720
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

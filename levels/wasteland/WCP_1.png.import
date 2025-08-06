@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c13rycultbgmj"
-path="res://.godot/imported/WCP_4.png-b5c25df73cd17bcb120e7c8a7378cf3a.ctex"
+uid="uid://bccgubo6sd686"
+path="res://.godot/imported/WCP_1.png-d2b761780b08d0d82cdf50fa1099f27f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wasteland/WCP_4.png"
-dest_files=["res://.godot/imported/WCP_4.png-b5c25df73cd17bcb120e7c8a7378cf3a.ctex"]
+source_file="res://levels/wasteland/WCP_1.png"
+dest_files=["res://.godot/imported/WCP_1.png-d2b761780b08d0d82cdf50fa1099f27f.ctex"]
 
 [params]
 

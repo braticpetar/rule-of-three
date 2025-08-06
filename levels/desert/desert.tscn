@@ -1,14 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxugbu6iecm8w"]
 
-[ext_resource type="Texture2D" uid="uid://bi37qupxpst1i" path="res://desert/1.png" id="1_mekps"]
-[ext_resource type="Texture2D" uid="uid://8t0j43tytk2f" path="res://desert/2.png" id="2_otkim"]
-[ext_resource type="Texture2D" uid="uid://b3rcdwdhkwmvr" path="res://desert/3.png" id="3_frm3e"]
-[ext_resource type="Texture2D" uid="uid://bffvryw5dl0qe" path="res://desert/4.png" id="4_wafgm"]
-[ext_resource type="Texture2D" uid="uid://bcsva7aacvbl3" path="res://desert/5.png" id="5_atv6b"]
+[ext_resource type="Texture2D" uid="uid://bi37qupxpst1i" path="res://levels/desert/1.png" id="1_mekps"]
+[ext_resource type="Texture2D" uid="uid://8t0j43tytk2f" path="res://levels/desert/2.png" id="2_otkim"]
+[ext_resource type="Texture2D" uid="uid://b3rcdwdhkwmvr" path="res://levels/desert/3.png" id="3_frm3e"]
+[ext_resource type="Texture2D" uid="uid://bffvryw5dl0qe" path="res://levels/desert/4.png" id="4_wafgm"]
+[ext_resource type="Texture2D" uid="uid://bcsva7aacvbl3" path="res://levels/desert/5.png" id="5_atv6b"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 0, 0)
+scroll_ignore_camera_zoom = true
 
 [node name="background" type="ParallaxLayer" parent="."]
 texture_filter = 1
