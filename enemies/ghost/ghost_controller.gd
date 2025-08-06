@@ -26,6 +26,4 @@ func handle_facing() -> void:
 		animation.flip_h = false
 		_facing = Facing.RIGHT
 
-# Emits the signal upon finished animation
-#func _on_animated_sprite_2d_animation_finished() -> void:
 		
