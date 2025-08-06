@@ -9,7 +9,7 @@ enum Facing {
 var horizontal_input: float = 0.0 # Used for character movement
 var dissolve_distance: Vector2 # Used for teleportation
 var _facing: Facing = Facing.RIGHT # Setting default value that character is facing right
-var attack_count: int = 0
+var attack_count: int = 0 # We use this variable to determine is attack combo needs to be chained
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D
@@ -61,11 +61,12 @@ func handle_facing() -> void:
 
 # Emits the signal upon finished animation
 func _on_animated_sprite_2d_animation_finished() -> void:
+	var current = state_machine.current_state.get_state_name()
 	# Only if player dissolved, transition to condense
-	if state_machine.current_state.get_state_name() == PlayerDissolvingState.state_name:
+	if current == PlayerDissolvingState.state_name:
 		state_machine.transition(PlayerCondensingState.state_name)
 	# If attack combo is scheduled, then chain light and heavy attacks
-	if state_machine.current_state.get_state_name() == PlayerLightAttackingState.state_name and attack_count > 1:
+	elif current == PlayerLightAttackingState.state_name and attack_count > 1:
 		state_machine.transition(PlayerHeavyAttackingState.state_name)
 	# In any other case, go back to idle state
 	else:

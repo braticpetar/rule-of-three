@@ -344,9 +344,7 @@ texture_filter = 1
 position = Vector2(212, 554)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"attack_heavy"
-frame = 3
-frame_progress = 0.0575478
+animation = &"dissolve"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
