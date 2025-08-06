@@ -158,10 +158,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hmglg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypcwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qls5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5d8w")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -244,7 +253,9 @@ script = ExtResource("1_eqcb8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_32mva")
-animation = &"idle"
+animation = &"appear"
+frame = 5
+frame_progress = 1.0
 
 [node name="CustomHurtBox" type="Area2D" parent="AnimatedSprite2D"]
 script = ExtResource("7_slcon")

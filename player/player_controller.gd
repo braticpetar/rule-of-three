@@ -34,16 +34,16 @@ func _physics_process(delta: float) -> void:
 # Handilng user input
 func _input(event: InputEvent) -> void:
 	# Player needs to hold "dissolve" and then determine the direction
-	if event.is_action_pressed("dissolve") and Input.is_action_pressed("up"):
+	if event.is_action_pressed("dissolve") and Input.is_action_pressed("up") and not _teleporting:
 			dissolve_distance = Vector2(0.0, -50.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
-	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("down"):
+	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("down") and not _teleporting:
 			dissolve_distance = Vector2(0.0, 50.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
-	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("left"):
+	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("left") and not _teleporting:
 			dissolve_distance = Vector2(-300.0, 0.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
-	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("right"):
+	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("right") and not _teleporting:
 			dissolve_distance = Vector2(300.0, 0.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
 	

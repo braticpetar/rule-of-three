@@ -35,6 +35,7 @@ func handle_facing() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	flash_white()
 	print(health)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -42,3 +43,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	# Only if player dissolved, transition to condense
 	if current == GhostDeathState.state_name:
 		queue_free()
+		
+func flash_white(duration := 0.3) -> void:
+	animation.modulate = Color(123, 219, 71)
+	await get_tree().create_timer(duration).timeout
+	animation.modulate = Color(1, 1, 1, 1)
+	
