@@ -8,6 +8,7 @@ func get_state_name() -> String:
 func enter() -> void:
 	player.velocity = Vector2(0,0) # Stop moving
 	animation.play("dissolve")
+	player._teleporting = true # Send signal
 	
 	# Enable for smooth camera transition
 	player.camera.position_smoothing_enabled = true

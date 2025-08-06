@@ -10,5 +10,5 @@ func enter() -> void:
 	animation.play_backwards("dissolve") # Play correct animation
 	
 func exit() -> void:
-	# Disable smooth camera so it doesn't get choppy
-	player.camera.position_smoothing_enabled = false
+	player.camera.position_smoothing_enabled = false # Disable smooth camera so it doesn't get choppy
+	player._teleporting = false # Send signal

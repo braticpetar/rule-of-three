@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_n604i"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="4_58fft"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58fft"]
+size = Vector2(95, 62)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58fft"]
+radius = 45.0148
+height = 96.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7gcp"]
 atlas = ExtResource("1_jwvdf")
 region = Rect2(896, 256, 64, 64)
@@ -304,35 +311,56 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_58fft"]
-size = Vector2(105, 62)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7gcp"]
-height = 82.0
-
 [node name="Blood Demon" type="CharacterBody2D"]
 script = ExtResource("1_aolgh")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_n604i")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(363, 554)
+[node name="Boxes" type="Node2D" parent="."]
+position = Vector2(300, 563)
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"attack_light"
-frame = 1
 
-[node name="CustomHitBox" type="Area2D" parent="AnimatedSprite2D"]
+[node name="CustomHitBoxLight" type="Area2D" parent="Boxes"]
 position = Vector2(35, -7.75)
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("4_58fft")
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CustomHitBox"]
-position = Vector2(-68.5, 59)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/CustomHitBoxLight"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-73, 59)
 shape = SubResource("RectangleShape2D_58fft")
+disabled = true
+debug_color = Color(0.736666, 0.395529, 0.659666, 0.42)
+
+[node name="CustomHitBoxHard" type="Area2D" parent="Boxes"]
+position = Vector2(35, -7.75)
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_58fft")
+metadata/_custom_type_script = "uid://b1u1246plg80p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/CustomHitBoxHard"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-79, 45)
+rotation = -0.341732
+scale = Vector2(1.15074, 1.16721)
+shape = SubResource("CapsuleShape2D_58fft")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(300, 563)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_iuqkv")
+animation = &"attack_heavy"
+frame = 6
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_n604i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -340,9 +368,5 @@ process_callback = 0
 limit_top = 0
 limit_bottom = 720
 editor_draw_limits = true
-
-[node name="Body Collision" type="CollisionShape2D" parent="."]
-position = Vector2(371, 577)
-shape = SubResource("CapsuleShape2D_y7gcp")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

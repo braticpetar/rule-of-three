@@ -10,12 +10,16 @@ var horizontal_input: float = 0.0 # Used for character movement
 var dissolve_distance: Vector2 # Used for teleportation
 var _facing: Facing = Facing.RIGHT # Setting default value that character is facing right
 var attack_count: int = 0 # We use this variable to determine is attack combo needs to be chained
+var _teleporting = false # If player is teleporting, can't do anything else
+var _attacking = false
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var camera = $Camera2D
-@onready var light_sword_collision = $AnimatedSprite2D/CustomHitBox
+@onready var boxes = $Boxes
+@onready var light_sword_hitbox = $Boxes/CustomHitBoxLight/CollisionShape2D
+@onready var heavy_sword_hitbox = $Boxes/CustomHitBoxHard/CollisionShape2D
 
 func _ready() -> void:
 	# We initialize the array with all states and start the machine
@@ -29,13 +33,8 @@ func _physics_process(delta: float) -> void:
 
 # Handilng user input
 func _input(event: InputEvent) -> void:
-	# Switch to attack state if player pressed attack button
-	if event.is_action_pressed("attack"):
-		attack_count += 1
-		state_machine.transition(PlayerLightAttackingState.state_name)
-		
 	# Player needs to hold "dissolve" and then determine the direction
-	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("up"):
+	if event.is_action_pressed("dissolve") and Input.is_action_pressed("up"):
 			dissolve_distance = Vector2(0.0, -50.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
 	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("down"):
@@ -47,6 +46,13 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("dissolve") and Input.is_action_pressed("right"):
 			dissolve_distance = Vector2(300.0, 0.0)
 			state_machine.transition(PlayerDissolvingState.state_name)
+	
+	# Count if we need a combo or not
+	elif event.is_action_pressed("attack"):
+		attack_count += 1
+		# Only if player is not already attacking or teleporting, we switch to attacking state
+		if not _teleporting and not _attacking:
+			state_machine.transition(PlayerLightAttackingState.state_name)
 
 func handle_facing() -> void:
 	# If x vector is negative, flip the animation, set facing to left
@@ -55,12 +61,13 @@ func handle_facing() -> void:
 		_facing = Facing.LEFT
 	# If x vector is positive, don't flip the animation, set facing to right
 	elif horizontal_input > 0.0:
-		animation.flip_h = false
 		_facing = Facing.RIGHT
-
+		animation.flip_h = false
+		
 # Emits the signal upon finished animation
 func _on_animated_sprite_2d_animation_finished() -> void:
 	var current = state_machine.current_state.get_state_name()
+	
 	# Only if player dissolved, transition to condense
 	if current == PlayerDissolvingState.state_name:
 		state_machine.transition(PlayerCondensingState.state_name)
