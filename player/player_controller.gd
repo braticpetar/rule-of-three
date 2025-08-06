@@ -12,6 +12,7 @@ var _facing: Facing = Facing.RIGHT # Setting default value that character is fac
 var attack_count: int = 0 # We use this variable to determine is attack combo needs to be chained
 var _teleporting = false # If player is teleporting, can't do anything else
 var _attacking = false
+var health = 100
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D
@@ -30,6 +31,10 @@ func _physics_process(delta: float) -> void:
 	# We get horizontal input to determine x value of position vector, as well as direction player is facing
 	horizontal_input = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_and_slide() # Mandatory function for movement in physics process
+	health -= 1
+	print(health)
+	if health <= 0:
+		die()
 
 # Handilng user input
 func _input(event: InputEvent) -> void:
@@ -77,4 +82,28 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	# In any other case, go back to idle state
 	else:
 		state_machine.transition(PlayerIdleState.state_name)
+		
+func take_damage(amount: int) -> void:
+	health -= amount
+	flash_white()
+	print(health)
+	if health <= 0:
+		print("You died")
+		die()
+	
+func flash_white(duration := 0.3) -> void:
+	animation.modulate = Color(123, 219, 71)
+	await get_tree().create_timer(duration).timeout
+	animation.modulate = Color(1, 1, 1, 1)
+	
+func die():
+	var death_screen = preload("res://ui/death_screen.tscn").instantiate()
+	get_tree().current_scene.add_child(death_screen)
+	
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	
+	await get_tree().create_timer(3.0).timeout
+	get_tree().quit()
 		

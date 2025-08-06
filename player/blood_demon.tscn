@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://bvli3xctfxair"]
+[gd_scene load_steps=48 format=3 uid="uid://bvli3xctfxair"]
 
 [ext_resource type="Script" uid="uid://cng3lployx2r" path="res://player/player_controller.gd" id="1_aolgh"]
 [ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://player/blood-demon.png" id="1_jwvdf"]
+[ext_resource type="Script" uid="uid://jmnb741sas32" path="res://core/custom_hurt_box.gd" id="3_1ug5r"]
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_n604i"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="4_58fft"]
 
@@ -11,6 +12,10 @@ size = Vector2(95, 62)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58fft"]
 radius = 45.0148
 height = 96.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vdlb"]
+radius = 12.5
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7gcp"]
 atlas = ExtResource("1_jwvdf")
@@ -351,6 +356,18 @@ rotation = -0.341732
 scale = Vector2(1.15074, 1.16721)
 shape = SubResource("CapsuleShape2D_58fft")
 disabled = true
+
+[node name="CustomHurtBox" type="Area2D" parent="Boxes"]
+position = Vector2(0.5, 5.75)
+scale = Vector2(0.439104, 0.573885)
+script = ExtResource("3_1ug5r")
+metadata/_custom_type_script = "uid://jmnb741sas32"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/CustomHurtBox"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -1.5)
+shape = SubResource("CapsuleShape2D_0vdlb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
