@@ -1,4 +1,4 @@
-class_name GhostController extends CharacterBody2D
+class_name GrimController extends CharacterBody2D
 
 signal health_changed
 
@@ -7,8 +7,8 @@ enum Facing {
 	RIGHT
 }
 
-var _facing: Facing = Facing.LEFT
-var health = 3
+var _facing: Facing = Facing.RIGHT
+var health = 5
 
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
@@ -18,23 +18,22 @@ var health = 3
 @onready var health_bar = $ProgressBar
 
 func _ready() -> void:
-	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self), GhostAttackingState.new(self), GhostChasingState.new(self)]
+	var states: Array[State] = [GrimIdleState.new(self), GrimDeathState.new(self), GrimAttackingState.new(self), GrimChasingState.new(self)]
 	state_machine.start_machine(states)
 
 func _process(delta: float) -> void:
-	if state_machine.current_state.get_state_name() != GhostDeathState.state_name and health <= 0:
-		state_machine.transition(GhostDeathState.state_name)
-		#self.queue_free()
+	if state_machine.current_state.get_state_name() != GrimDeathState.state_name and health <= 0:
+		state_machine.transition(GrimDeathState.state_name)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_facing() -> void:	
 	if velocity.x < 0.0:
-		animation.flip_h = false
+		animation.flip_h = true
 		_facing = Facing.LEFT
 	elif velocity.x > 0.0:
-		animation.flip_h = true
+		animation.flip_h = false
 		_facing = Facing.RIGHT
 
 func take_damage(amount: int) -> void:
@@ -46,7 +45,7 @@ func take_damage(amount: int) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	var current = state_machine.current_state.get_state_name()
 	# Only if player dissolved, transition to condense
-	if current == GhostDeathState.state_name:
+	if current == GrimDeathState.state_name:
 		queue_free()
 		
 func flash_white(duration := 0.3) -> void:
@@ -56,17 +55,17 @@ func flash_white(duration := 0.3) -> void:
 
 
 func _on_chasing_area_body_entered(_body) -> void:
-	state_machine.transition(GhostChasingState.state_name)
+	state_machine.transition(GrimChasingState.state_name)
 	print("entered")
 
 func _on_chasing_area_body_exited(_body: Node2D) -> void:
-	state_machine.transition(GhostIdleState.state_name)
+	state_machine.transition(GrimIdleState.state_name)
 	print("exited")
 
 
 func _on_attacking_area_body_entered(_body: Node2D) -> void:
-	state_machine.transition(GhostAttackingState.state_name)
+	state_machine.transition(GrimAttackingState.state_name)
 
 
 func _on_attacking_area_body_exited(_body: Node2D) -> void:
-	state_machine.transition(GhostChasingState.state_name)
+	state_machine.transition(GrimChasingState.state_name)
