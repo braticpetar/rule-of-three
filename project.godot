@@ -76,7 +76,6 @@ dissolve={
 2d_physics/layer_5="enemy_hitbox"
 2d_physics/layer_6="chasing_area"
 2d_physics/layer_7="attack_area"
-2d_physics/layer_8="enemy_body"
 
 [rendering]
 

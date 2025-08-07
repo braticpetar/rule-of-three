@@ -22,6 +22,7 @@ func _ready():
 
 func _on_spawn_timer_timeout():
 	var enemy = enemy_factory.spawn_enemy(enemy_scene)
+
 	if enemy:
 		enemy.global_position = global_position
 		get_tree().current_scene.add_child(enemy)
