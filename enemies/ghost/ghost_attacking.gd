@@ -6,6 +6,8 @@ const STOP_FORCE: float = 15.0
 
 func enter() -> void:
 	ghost.velocity = Vector2(0, 0)
+	ghost.hitbox.set_deferred("disabled", false)
+	ghost.attack_area.set_deferred("disabled", true)
 
 func get_state_name() -> String:
 	return state_name
@@ -13,13 +15,16 @@ func get_state_name() -> String:
 func process(_delta: float) -> void:
 	animation.play("attack")
 	ghost.handle_facing()
-	ghost.hitbox.set_deferred("disabled", false) # Turn on hitbox
+	 # Turn on hitbox
+	
 	
 	# Flip the boxes depending on player's facing
 	if ghost._facing == 0:
 		ghost.hitbox.scale.x = abs(ghost.hitbox.scale.x) * -1
 	elif ghost._facing == 1:
 		ghost.hitbox.scale.x = abs(ghost.hitbox.scale.x)
+		
 	
 func exit() -> void:
-	ghost.hitbox.set_deferred("disabled", true)
+	pass#ghost.hitbox.set_deferred("disabled", true)
+	

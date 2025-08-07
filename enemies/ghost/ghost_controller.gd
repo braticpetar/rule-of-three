@@ -12,7 +12,7 @@ var health = 3
 @onready var state_machine = $StateMachine
 @onready var hurt_box = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
 @onready var hitbox = $CustomHitBox/CollisionShape2D
-#@onready var collision_shape = $CollisionShape2D
+@onready var attack_area = $AttackingArea/CollisionShape2D
 
 func _ready() -> void:
 	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self), GhostAttackingState.new(self), GhostChasingState.new(self)]
@@ -44,6 +44,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	# Only if player dissolved, transition to condense
 	if current == GhostDeathState.state_name:
 		queue_free()
+	elif current == GhostAttackingState.state_name:
+		attack_area.set_deferred("disabled", false)
 		
 func flash_white(duration := 0.3) -> void:
 	animation.modulate = Color(123, 219, 71)
