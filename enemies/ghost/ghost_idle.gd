@@ -5,7 +5,7 @@ static var state_name = "GhostIdleState"
 const STOP_FORCE: float = 15.0
 
 func enter() -> void:
-	pass#ghost.velocity = Vector2(0, 0)
+	ghost.velocity = Vector2(0, 0)
 
 func get_state_name() -> String:
 	return state_name

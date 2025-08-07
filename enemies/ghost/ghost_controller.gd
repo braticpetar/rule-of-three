@@ -5,16 +5,17 @@ enum Facing {
 	RIGHT
 }
 
-var _facing: Facing = Facing.RIGHT
+var _facing: Facing = Facing.LEFT
 var health = 3
 
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hurt_box = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
+@onready var hitbox = $CustomHitBox/CollisionShape2D
 #@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
-	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self)]
+	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self), GhostAttackingState.new(self), GhostChasingState.new(self)]
 	state_machine.start_machine(states)
 
 func _process(delta: float) -> void:
@@ -27,10 +28,10 @@ func _physics_process(delta: float) -> void:
 
 func handle_facing() -> void:	
 	if velocity.x < 0.0:
-		animation.flip_h = true
+		animation.flip_h = false
 		_facing = Facing.LEFT
 	elif velocity.x > 0.0:
-		animation.flip_h = false
+		animation.flip_h = true
 		_facing = Facing.RIGHT
 
 func take_damage(amount: int) -> void:
@@ -48,4 +49,20 @@ func flash_white(duration := 0.3) -> void:
 	animation.modulate = Color(123, 219, 71)
 	await get_tree().create_timer(duration).timeout
 	animation.modulate = Color(1, 1, 1, 1)
-	
+
+
+func _on_chasing_area_body_entered(body) -> void:
+	state_machine.transition(GhostChasingState.state_name)
+	print("entered")
+
+func _on_chasing_area_body_exited(body: Node2D) -> void:
+	state_machine.transition(GhostIdleState.state_name)
+	print("exited")
+
+
+func _on_attacking_area_body_entered(body: Node2D) -> void:
+	state_machine.transition(GhostAttackingState.state_name)
+
+
+func _on_attacking_area_body_exited(body: Node2D) -> void:
+	state_machine.transition(GhostChasingState.state_name)

@@ -23,6 +23,8 @@ var health = 100
 @onready var heavy_sword_hitbox = $Boxes/CustomHitBoxHard/CollisionShape2D
 
 func _ready() -> void:
+	# Initialize player singleton
+	PlayerSingleton.player = self
 	# We initialize the array with all states and start the machine
 	var states: Array[State] = [PlayerIdleState.new(self), PlayerRunningState.new(self), PlayerLightAttackingState.new(self), PlayerDissolvingState.new(self), PlayerCondensingState.new(self), PlayerHeavyAttackingState.new(self)]
 	state_machine.start_machine(states)
@@ -31,10 +33,6 @@ func _physics_process(delta: float) -> void:
 	# We get horizontal input to determine x value of position vector, as well as direction player is facing
 	horizontal_input = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_and_slide() # Mandatory function for movement in physics process
-	health -= 1
-	print(health)
-	if health <= 0:
-		die()
 
 # Handilng user input
 func _input(event: InputEvent) -> void:
@@ -88,7 +86,6 @@ func take_damage(amount: int) -> void:
 	flash_white()
 	print(health)
 	if health <= 0:
-		print("You died")
 		die()
 	
 func flash_white(duration := 0.3) -> void:
