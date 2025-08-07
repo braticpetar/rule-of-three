@@ -6,6 +6,7 @@ func enter() -> void:
 	grim.velocity = Vector2(0, 0)
 	animation.play("vanish")
 	grim.hitbox.set_deferred("disabled", true)
+	grim.collision_shape.set_deferred("disabled", true)
 
 func get_state_name() -> String:
 	return state_name

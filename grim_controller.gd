@@ -13,9 +13,10 @@ var health = 5
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hurt_box = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
-@onready var hitbox = $CustomHitBox/CollisionShape2D
-@onready var attack_area = $AttackingArea/CollisionShape2D
+@onready var hitbox = $CustomHitBox
+@onready var attack_area = $AttackingArea
 @onready var health_bar = $ProgressBar
+@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
 	var states: Array[State] = [GrimIdleState.new(self), GrimDeathState.new(self), GrimAttackingState.new(self), GrimChasingState.new(self)]
@@ -32,9 +33,14 @@ func handle_facing() -> void:
 	if velocity.x < 0.0:
 		animation.flip_h = true
 		_facing = Facing.LEFT
+		hitbox.scale.x = abs(hitbox.scale.x) * -1
+		attack_area.scale.x = abs(attack_area.scale.x) * -1
 	elif velocity.x > 0.0:
 		animation.flip_h = false
 		_facing = Facing.RIGHT
+		hitbox.scale.x = abs(hitbox.scale.x)
+		attack_area.scale.x = abs(attack_area.scale.x)
+
 
 func take_damage(amount: int) -> void:
 	health -= amount
@@ -56,11 +62,9 @@ func flash_white(duration := 0.3) -> void:
 
 func _on_chasing_area_body_entered(_body) -> void:
 	state_machine.transition(GrimChasingState.state_name)
-	print("entered")
 
 func _on_chasing_area_body_exited(_body: Node2D) -> void:
 	state_machine.transition(GrimIdleState.state_name)
-	print("exited")
 
 
 func _on_attacking_area_body_entered(_body: Node2D) -> void:

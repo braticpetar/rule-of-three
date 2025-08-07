@@ -16,6 +16,7 @@ var health = 3
 @onready var hitbox = $CustomHitBox/CollisionShape2D
 @onready var attack_area = $AttackingArea/CollisionShape2D
 @onready var health_bar = $ProgressBar
+@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
 	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self), GhostAttackingState.new(self), GhostChasingState.new(self)]
@@ -24,7 +25,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if state_machine.current_state.get_state_name() != GhostDeathState.state_name and health <= 0:
 		state_machine.transition(GhostDeathState.state_name)
-		#self.queue_free()
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

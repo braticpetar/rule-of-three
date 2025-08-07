@@ -22,5 +22,4 @@ func process(_delta: float) -> void:
 		ghost.hitbox.scale.x = abs(ghost.hitbox.scale.x) * -1
 	elif ghost._facing == 1:
 		ghost.hitbox.scale.x = abs(ghost.hitbox.scale.x)
-		
 	

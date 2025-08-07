@@ -618,17 +618,16 @@ debug_color = Color(0.922626, 0, 0.262845, 0.42)
 script = ExtResource("8_amnpj")
 
 [node name="CustomHitBox" type="Area2D" parent="."]
-position = Vector2(135.5, -34.5)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("9_biuly")
-damage = 3
+damage = 2
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHitBox"]
 light_mask = 4
 visibility_layer = 2
-position = Vector2(-112, 40.5)
+position = Vector2(22, 5)
 scale = Vector2(1.38134, 3.32735)
 shape = SubResource("RectangleShape2D_qbayn")
 disabled = true

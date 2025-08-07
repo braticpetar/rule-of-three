@@ -15,12 +15,5 @@ func get_state_name() -> String:
 func process(_delta: float) -> void:
 	animation.play("attack")
 	grim.handle_facing()
-	 # Turn on hitbox
-	
-	# Flip the boxes depending on player's facing
-	if grim._facing == 0:
-		grim.hitbox.scale.x = abs(grim.hitbox.scale.x) * -1
-	elif grim._facing == 1:
-		grim.hitbox.scale.x = abs(grim.hitbox.scale.x)
 		
 	
