@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsddhnj54dh5p"]
+
+[ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_ftvqg"]
+[ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="2_qsta6"]
+[ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost.tscn" id="3_qsta6"]
+[ext_resource type="Texture2D" uid="uid://bqdqmrvaivc2q" path="res://icon.svg" id="4_a7yev"]
+
+[node name="ghost_spawner" type="Node2D" node_paths=PackedStringArray("enemy_factory")]
+script = ExtResource("1_ftvqg")
+enemy_factory = NodePath("EnemyFactory")
+enemy_scene = ExtResource("3_qsta6")
+
+[node name="EnemyFactory" parent="." instance=ExtResource("2_qsta6")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_a7yev")
