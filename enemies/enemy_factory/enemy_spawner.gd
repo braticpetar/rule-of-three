@@ -7,7 +7,7 @@ signal health_changed
 @export var enemy_scene: PackedScene
 @export var spawn_interval: float = 5.0
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 
 var spawn_timer: Timer
 var health = 20
@@ -19,12 +19,14 @@ func _ready():
 	spawn_timer.one_shot = false
 	add_child(spawn_timer)
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	sprite.play("default")
 
 func _on_spawn_timer_timeout():
 	var enemy = enemy_factory.spawn_enemy(enemy_scene)
 
 	if enemy:
-		enemy.global_position = global_position
+		enemy.global_position.x = global_position.x
+		enemy.global_position.y = PlayerSingleton.get_player_position().y
 		get_tree().current_scene.add_child(enemy)
 		
 func take_damage(amount: int) -> void:

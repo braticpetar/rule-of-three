@@ -18,12 +18,12 @@ visible = false
 [node name="Ghost" parent="." instance=ExtResource("4_ppyta")]
 position = Vector2(546, 579)
 
-[node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
-
 [node name="smog" parent="." instance=ExtResource("5_ykrsh")]
 
 [node name="ghost_spawner" parent="." instance=ExtResource("6_g14j6")]
-position = Vector2(1551, 571)
+position = Vector2(1530, 477)
 scale = Vector2(0.692308, 0.78125)
+
+[node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
 
 [node name="ui" parent="." instance=ExtResource("7_vbegm")]

@@ -1,11 +1,61 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsddhnj54dh5p"]
+[gd_scene load_steps=18 format=3 uid="uid://bsddhnj54dh5p"]
 
 [ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_ftvqg"]
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="2_qsta6"]
 [ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost.tscn" id="3_qsta6"]
-[ext_resource type="Texture2D" uid="uid://bqdqmrvaivc2q" path="res://icon.svg" id="4_a7yev"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_8i8h8"]
+[ext_resource type="Texture2D" uid="uid://d1dbp8mwcwlcn" path="res://spawner.png" id="5_kwu6q"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_kwu6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq8bk"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y467j"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7bsl"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me7n3"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2buqm"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vwfs"]
+atlas = ExtResource("5_kwu6q")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ryyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq8bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y467j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7bsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me7n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2buqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vwfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8i8h8"]
 b = Vector2(0, 115)
@@ -29,10 +79,15 @@ enemy_scene = ExtResource("3_qsta6")
 
 [node name="EnemyFactory" parent="." instance=ExtResource("2_qsta6")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_a7yev")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6ryyk")
 
 [node name="CustomHurtBox" type="Area2D" parent="."]
+position = Vector2(69, 24)
+scale = Vector2(1.25219, -2.41003)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("5_8i8h8")
@@ -47,10 +102,10 @@ debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
 texture_filter = 1
-offset_left = -50.0
-offset_top = -86.0
-offset_right = 50.0
-offset_bottom = -76.0
+offset_left = -95.0
+offset_top = -196.0
+offset_right = 105.0
+offset_bottom = -176.0
 theme_override_styles/background = SubResource("StyleBoxFlat_y467j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p7bsl")
 max_value = 20.0
@@ -61,7 +116,8 @@ script = ExtResource("6_kwu6q")
 enemy = NodePath("..")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["body_block"]]
-position = Vector2(0, -1)
+position = Vector2(0, 3)
+scale = Vector2(2.05758, 2.89151)
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
