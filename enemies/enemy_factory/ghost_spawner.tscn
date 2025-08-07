@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsddhnj54dh5p"]
+[gd_scene load_steps=17 format=3 uid="uid://bsddhnj54dh5p"]
 
 [ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_ftvqg"]
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="2_qsta6"]
@@ -57,8 +57,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_8i8h8"]
-b = Vector2(0, 115)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwu6q"]
+size = Vector2(61.1106, 121.202)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y467j"]
 bg_color = Color(0, 0, 0, 1)
@@ -68,9 +68,6 @@ shadow_size = 3
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7bsl"]
 bg_color = Color(0.704027, 0, 0.175111, 1)
 border_color = Color(0, 0.490196, 0.396078, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i8h8"]
-size = Vector2(129, 110)
 
 [node name="ghost_spawner" type="Node2D" node_paths=PackedStringArray("enemy_factory")]
 script = ExtResource("1_ftvqg")
@@ -96,8 +93,9 @@ metadata/_custom_type_script = "uid://c71w3orp4rv71"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHurtBox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(62, -57)
-shape = SubResource("SegmentShape2D_8i8h8")
+position = Vector2(40.7288, 7.46878)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kwu6q")
 debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
@@ -114,13 +112,3 @@ value = 1.0
 show_percentage = false
 script = ExtResource("6_kwu6q")
 enemy = NodePath("..")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["body_block"]]
-position = Vector2(0, 3)
-scale = Vector2(2.05758, 2.89151)
-collision_layer = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-light_mask = 128
-visibility_layer = 256
-shape = SubResource("RectangleShape2D_8i8h8")

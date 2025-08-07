@@ -11,7 +11,8 @@
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_qbayn"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_qbayn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbayn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jj1k"]
+size = Vector2(20, 34.0419)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcon"]
 size = Vector2(225.697, 38.3642)
@@ -271,8 +272,9 @@ collision_layer = 128
 script = ExtResource("1_eqcb8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 scale = Vector2(1, 1.3726)
-shape = SubResource("CapsuleShape2D_qbayn")
+shape = SubResource("RectangleShape2D_7jj1k")
 
 [node name="ChasingArea" type="Area2D" parent="."]
 collision_layer = 32

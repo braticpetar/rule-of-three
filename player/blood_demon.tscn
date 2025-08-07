@@ -305,7 +305,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ug5r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ug5r"]
+size = Vector2(20, 35.1147)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58fft"]
 size = Vector2(85.5, 62)
@@ -330,9 +331,9 @@ sprite_frames = SubResource("SpriteFrames_iuqkv")
 animation = &"attack_light"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["body_block"]]
-position = Vector2(2, 21)
+position = Vector2(2, 20)
 scale = Vector2(1.75983, 2.46867)
-shape = SubResource("CapsuleShape2D_1ug5r")
+shape = SubResource("RectangleShape2D_1ug5r")
 
 [node name="Boxes" type="Node2D" parent="."]
 scale = Vector2(4, 4)
