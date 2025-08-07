@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsddhnj54dh5p"]
+[gd_scene load_steps=10 format=3 uid="uid://bsddhnj54dh5p"]
 
 [ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_ftvqg"]
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="2_qsta6"]
 [ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost.tscn" id="3_qsta6"]
 [ext_resource type="Texture2D" uid="uid://bqdqmrvaivc2q" path="res://icon.svg" id="4_a7yev"]
+[ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_8i8h8"]
+[ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_kwu6q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iq8bk"]
+radius = 12.5
+height = 34.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y467j"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.66, 0.308, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7bsl"]
+bg_color = Color(0.704027, 0, 0.175111, 1)
+border_color = Color(0, 0.490196, 0.396078, 0)
 
 [node name="ghost_spawner" type="Node2D" node_paths=PackedStringArray("enemy_factory")]
 script = ExtResource("1_ftvqg")
@@ -14,3 +29,31 @@ enemy_scene = ExtResource("3_qsta6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_a7yev")
+
+[node name="CustomHurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_8i8h8")
+metadata/_custom_type_script = "uid://c71w3orp4rv71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHurtBox"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0, -1.5)
+shape = SubResource("CapsuleShape2D_iq8bk")
+debug_color = Color(0.922626, 0, 0.262845, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
+texture_filter = 1
+offset_left = -16.0
+offset_top = -31.5
+offset_right = 14.0
+offset_bottom = -25.5
+theme_override_styles/background = SubResource("StyleBoxFlat_y467j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p7bsl")
+max_value = 20.0
+step = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("6_kwu6q")
+enemy = NodePath("..")

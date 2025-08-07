@@ -1,5 +1,7 @@
 class_name GhostController extends CharacterBody2D
 
+signal health_changed
+
 enum Facing {
 	LEFT,
 	RIGHT
@@ -13,6 +15,7 @@ var health = 3
 @onready var hurt_box = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
 @onready var hitbox = $CustomHitBox/CollisionShape2D
 @onready var attack_area = $AttackingArea/CollisionShape2D
+@onready var health_bar = $ProgressBar
 
 func _ready() -> void:
 	var states: Array[State] = [GhostIdleState.new(self), GhostDeathState.new(self), GhostAttackingState.new(self), GhostChasingState.new(self)]
@@ -36,6 +39,7 @@ func handle_facing() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	health_changed.emit()
 	flash_white()
 	print(health)
 

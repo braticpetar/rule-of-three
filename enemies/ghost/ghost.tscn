@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dy0ijraov2rrb"]
+[gd_scene load_steps=45 format=3 uid="uid://dy0ijraov2rrb"]
 
 [ext_resource type="Script" uid="uid://hj8j53gej2er" path="res://enemies/ghost/ghost_controller.gd" id="1_eqcb8"]
 [ext_resource type="Texture2D" uid="uid://6itk7hh2a45j" path="res://enemies/ghost/ghost-Appear.png" id="2_v2tme"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://tpx227rrtkeq" path="res://enemies/ghost/ghost-Vanish.png" id="6_slcon"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="9_d6rty"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_qbayn"]
+[ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_qbayn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcon"]
 size = Vector2(225.697, 38.3642)
@@ -253,6 +254,15 @@ height = 34.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbayn"]
 size = Vector2(25, 19)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jj1k"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.66, 0.308, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr3aj"]
+bg_color = Color(0.704027, 0, 0.175111, 1)
+border_color = Color(0, 0.490196, 0.396078, 0)
+
 [node name="Ghost" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_eqcb8")
@@ -306,6 +316,21 @@ position = Vector2(-136.5, 33)
 shape = SubResource("RectangleShape2D_qbayn")
 disabled = true
 debug_color = Color(0.736666, 0.395529, 0.659666, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
+texture_filter = 1
+offset_left = -16.0
+offset_top = -31.5
+offset_right = 14.0
+offset_bottom = -25.5
+theme_override_styles/background = SubResource("StyleBoxFlat_7jj1k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rr3aj")
+max_value = 3.0
+step = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("10_qbayn")
+enemy = NodePath("..")
 
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]
