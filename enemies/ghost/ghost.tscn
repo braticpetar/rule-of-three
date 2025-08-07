@@ -332,6 +332,8 @@ show_percentage = false
 script = ExtResource("10_qbayn")
 enemy = NodePath("..")
 
+[node name="PatrolTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]
 [connection signal="body_entered" from="AttackingArea" to="." method="_on_attacking_area_body_entered"]
