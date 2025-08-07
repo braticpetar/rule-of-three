@@ -7,9 +7,8 @@
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_8i8h8"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_kwu6q"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iq8bk"]
-radius = 12.5
-height = 34.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8i8h8"]
+b = Vector2(0, 115)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y467j"]
 bg_color = Color(0, 0, 0, 1)
@@ -39,16 +38,16 @@ metadata/_custom_type_script = "uid://c71w3orp4rv71"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHurtBox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(0, -1.5)
-shape = SubResource("CapsuleShape2D_iq8bk")
+position = Vector2(62, -57)
+shape = SubResource("SegmentShape2D_8i8h8")
 debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
 texture_filter = 1
-offset_left = -16.0
-offset_top = -31.5
-offset_right = 14.0
-offset_bottom = -25.5
+offset_left = -50.0
+offset_top = -86.0
+offset_right = 50.0
+offset_bottom = -76.0
 theme_override_styles/background = SubResource("StyleBoxFlat_y467j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p7bsl")
 max_value = 20.0
