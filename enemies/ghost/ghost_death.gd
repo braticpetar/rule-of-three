@@ -4,6 +4,7 @@ static var state_name = "GhostDeathState"
 
 func enter() -> void:
 	animation.play("vanish")
+	ghost.hitbox.set_deferred("disabled", true)
 
 func get_state_name() -> String:
 	return state_name

@@ -195,7 +195,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_heavy",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -215,7 +215,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_light",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,8 +378,7 @@ debug_color = Color(0.835491, 0, 0.199748, 0.42)
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_iuqkv")
-animation = &"attack_heavy"
-frame = 6
+animation = &"attack_light"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_n604i")

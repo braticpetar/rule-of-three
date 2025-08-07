@@ -1,5 +1,7 @@
 class_name PlayerController extends CharacterBody2D
 
+signal healthChanged
+
 # Enum used to determine if we should flip sprites or not
 enum Facing {
 	LEFT,
@@ -12,7 +14,6 @@ var _facing: Facing = Facing.RIGHT # Setting default value that character is fac
 var attack_count: int = 0 # We use this variable to determine is attack combo needs to be chained
 var _teleporting = false # If player is teleporting, can't do anything else
 var _attacking = false
-var health = 10
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D
@@ -82,10 +83,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		state_machine.transition(PlayerIdleState.state_name)
 		
 func take_damage(amount: int) -> void:
-	health -= amount
+	PlayerSingleton.health -= amount
+	PlayerSingleton.health_changed.emit()
 	flash_white()
-	print(health)
-	if health <= 0:
+	print(PlayerSingleton.health)
+	if PlayerSingleton.health <= 0:
 		die()
 	
 func flash_white(duration := 0.3) -> void:
