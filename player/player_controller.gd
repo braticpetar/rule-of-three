@@ -12,7 +12,7 @@ var _facing: Facing = Facing.RIGHT # Setting default value that character is fac
 var attack_count: int = 0 # We use this variable to determine is attack combo needs to be chained
 var _teleporting = false # If player is teleporting, can't do anything else
 var _attacking = false
-var health = 100
+var health = 10
 
 # Setting onready variables
 @onready var animation = $AnimatedSprite2D

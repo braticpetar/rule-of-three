@@ -7,11 +7,11 @@
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_v2tme"]
 [ext_resource type="Texture2D" uid="uid://dah6q1xardiwk" path="res://enemies/ghost/ghost-Chase.png" id="4_566vf"]
 [ext_resource type="Texture2D" uid="uid://tpx227rrtkeq" path="res://enemies/ghost/ghost-Vanish.png" id="6_slcon"]
-[ext_resource type="Script" uid="uid://jmnb741sas32" path="res://core/custom_hurt_box.gd" id="7_slcon"]
-[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_d6rty"]
+[ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="9_d6rty"]
+[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_qbayn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcon"]
-size = Vector2(428.5, 142.5)
+size = Vector2(225.697, 38.3642)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32mva"]
 atlas = ExtResource("2_v2tme")
@@ -174,7 +174,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 7.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -260,35 +260,34 @@ script = ExtResource("1_eqcb8")
 [node name="ChasingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChasingArea"]
-position = Vector2(-0.5, 0.999989)
-scale = Vector2(0.979191, 1.47163)
+position = Vector2(-0.500008, 0)
+scale = Vector2(2.67704, 2.9136)
 shape = SubResource("RectangleShape2D_slcon")
 
 [node name="AttackingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingArea"]
-position = Vector2(-0.5, 0.999989)
-scale = Vector2(0.0870289, 0.287739)
+position = Vector2(-0.5, -0.5)
+scale = Vector2(0.0870289, 0.544437)
 shape = SubResource("RectangleShape2D_slcon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_32mva")
-animation = &"appear"
-frame = 5
-frame_progress = 1.0
+animation = &"attack"
 
 [node name="CustomHurtBox" type="Area2D" parent="AnimatedSprite2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("7_slcon")
-metadata/_custom_type_script = "uid://jmnb741sas32"
+script = ExtResource("9_d6rty")
+metadata/_custom_type_script = "uid://c71w3orp4rv71"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CustomHurtBox"]
 light_mask = 0
 visibility_layer = 2
 position = Vector2(0, -1.5)
 shape = SubResource("CapsuleShape2D_d6rty")
+debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_v2tme")
@@ -297,7 +296,7 @@ script = ExtResource("3_v2tme")
 position = Vector2(135.5, -34.5)
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("9_d6rty")
+script = ExtResource("9_qbayn")
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHitBox"]

@@ -1,4 +1,4 @@
-class_name CustomHurtBox
+class_name CustomHurtBoxEnemy
 
 extends Area2D
 	
@@ -11,5 +11,4 @@ func _on_area_entered(hitbox: CustomHitBox) -> void:
 		
 	if owner.has_method("take_damage"):
 		owner.take_damage(hitbox.damage)
-	
 	

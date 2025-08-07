@@ -44,8 +44,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	# Only if player dissolved, transition to condense
 	if current == GhostDeathState.state_name:
 		queue_free()
-	elif current == GhostAttackingState.state_name:
-		attack_area.set_deferred("disabled", false)
 		
 func flash_white(duration := 0.3) -> void:
 	animation.modulate = Color(123, 219, 71)

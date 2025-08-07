@@ -6,7 +6,7 @@ const ACCELERATION: float = 10.0
 const MAX_SPEED: float = 50.0
 
 func enter() -> void:
-	pass#ghost.velocity = Vector2(0, 0)
+	ghost.attack_area.set_deferred("disabled", false)
 
 func get_state_name() -> String:
 	return state_name
