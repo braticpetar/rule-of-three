@@ -389,6 +389,7 @@ process_callback = 0
 editor_draw_limits = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 21)
 scale = Vector2(1.75641, 2.29554)
 shape = SubResource("RectangleShape2D_1ug5r")
 
