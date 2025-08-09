@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cl0r7ewqa0frs" path="res://levels/blood_cave/0.png" id="6_xepsu"]
 [ext_resource type="Texture2D" uid="uid://r0ahke7xybbe" path="res://levels/blood_cave/5-scaled-red.png" id="7_j30f8"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="BloodCave" type="ParallaxBackground"]
 
 [node name="background" type="ParallaxLayer" parent="."]
 texture_filter = 1
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
+modulate = Color(0.34, 0, 0, 1)
 texture = ExtResource("1_wpu3v")
 centered = false
 
