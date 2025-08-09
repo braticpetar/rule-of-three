@@ -14,6 +14,7 @@ var health = 5
 @onready var state_machine = $StateMachine
 @onready var hurt_box = $AnimatedSprite2D/CustomHurtBox/CollisionShape2D
 @onready var hitbox = $CustomHitBox
+@onready var hitbox_shape = $CustomHitBox/CollisionShape2D
 @onready var attack_area = $AttackingArea
 @onready var health_bar = $ProgressBar
 @onready var collision_shape = $CollisionShape2D
