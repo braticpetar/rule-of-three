@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctvhajonytf2u"]
+[gd_scene load_steps=11 format=3 uid="uid://ctvhajonytf2u"]
 
 [ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://player/blood_demon.tscn" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://bxugbu6iecm8w" path="res://levels/desert/desert.tscn" id="2_8uh7m"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bd76eaexgukph" path="res://ui/ui.tscn" id="7_vbegm"]
 [ext_resource type="PackedScene" uid="uid://dpmw1h4xdj2s5" path="res://enemies/skeleton/skeleton.tscn" id="8_ehkex"]
 [ext_resource type="PackedScene" uid="uid://dmt2x14lxd0o5" path="res://enemies/skeleton/skeleton_2.tscn" id="9_xersf"]
+[ext_resource type="PackedScene" uid="uid://fci0defyb286" path="res://enemies/enemy_factory/random_enemy_spawner.tscn" id="10_00tp4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -34,3 +35,6 @@ position = Vector2(1932, 534)
 
 [node name="Skeleton_2" parent="." instance=ExtResource("9_xersf")]
 position = Vector2(1871, 509)
+
+[node name="ghost_2_spawner" parent="." instance=ExtResource("10_00tp4")]
+position = Vector2(1181, 415)

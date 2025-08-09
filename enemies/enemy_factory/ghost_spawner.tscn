@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsddhnj54dh5p"]
+[gd_scene load_steps=16 format=3 uid="uid://vgq6yd46ir2s"]
 
 [ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_ftvqg"]
-[ext_resource type="PackedScene" uid="uid://dbp82hg2oajy3" path="res://enemies/ghost/ghost.tscn" id="2_8i8h8"]
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="2_qsta6"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_8i8h8"]
-[ext_resource type="Texture2D" uid="uid://d1dbp8mwcwlcn" path="res://spawner.png" id="5_kwu6q"]
+[ext_resource type="Texture2D" uid="uid://d1dbp8mwcwlcn" path="res://enemies/enemy_factory/ghost_spawner.png" id="5_kwu6q"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_kwu6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq8bk"]
@@ -72,7 +71,6 @@ border_color = Color(0, 0.490196, 0.396078, 0)
 [node name="ghost_spawner" type="Node2D" node_paths=PackedStringArray("enemy_factory")]
 script = ExtResource("1_ftvqg")
 enemy_factory = NodePath("EnemyFactory")
-enemy_scene = ExtResource("2_8i8h8")
 
 [node name="EnemyFactory" parent="." instance=ExtResource("2_qsta6")]
 

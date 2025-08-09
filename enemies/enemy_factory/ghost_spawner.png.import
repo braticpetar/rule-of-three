@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1dbp8mwcwlcn"
-path="res://.godot/imported/spawner.png-a5bdaad54ddfbf47bd9f5d3f7e80a397.ctex"
+path="res://.godot/imported/ghost_spawner.png-cb86d81cd3a7491cf10e2011621b44fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spawner.png"
-dest_files=["res://.godot/imported/spawner.png-a5bdaad54ddfbf47bd9f5d3f7e80a397.ctex"]
+source_file="res://enemies/enemy_factory/ghost_spawner.png"
+dest_files=["res://.godot/imported/ghost_spawner.png-cb86d81cd3a7491cf10e2011621b44fc.ctex"]
 
 [params]
 
