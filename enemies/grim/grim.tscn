@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_4c7rb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jj1k"]
-size = Vector2(23.5, 46.8912)
+size = Vector2(23.5, 36.9237)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcon"]
-size = Vector2(225.697, 38.3642)
+size = Vector2(177.637, 28.7242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fjr1"]
 atlas = ExtResource("2_54kvc")
@@ -554,7 +554,7 @@ radius = 12.5
 height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbayn"]
-size = Vector2(25, 19)
+size = Vector2(16.7471, 11.1365)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jj1k"]
 bg_color = Color(0, 0, 0, 1)
@@ -571,10 +571,12 @@ collision_layer = 128
 script = ExtResource("1_54kvc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(1, 1.3726)
 shape = SubResource("RectangleShape2D_7jj1k")
 
 [node name="ChasingArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChasingArea"]
@@ -600,6 +602,7 @@ frame = 20
 frame_progress = 1.0
 
 [node name="CustomHurtBox" type="Area2D" parent="AnimatedSprite2D"]
+visible = false
 position = Vector2(-0.333334, 14)
 scale = Vector2(0.499115, 0.740489)
 collision_layer = 8

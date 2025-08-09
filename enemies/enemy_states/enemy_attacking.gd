@@ -14,5 +14,8 @@ func get_state_name() -> String:
 func process(_delta: float) -> void:
 	animation.play("attack")
 	enemy.handle_facing()
+	
+func exit() -> void:
+	enemy.hitbox_shape.set_deferred("disabled", true)
 		
 	
