@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmqgiyj4r68yh"]
+
+[ext_resource type="Texture2D" uid="uid://dwqwpdn85ddja" path="res://levels/blood_cave/BG.png" id="1_wpu3v"]
+[ext_resource type="Texture2D" uid="uid://cu4n6h5dibe1b" path="res://levels/blood_cave/4.png" id="2_brm7l"]
+[ext_resource type="Texture2D" uid="uid://phoo6wbjvwrx" path="res://levels/blood_cave/3.png" id="3_eom7h"]
+[ext_resource type="Texture2D" uid="uid://0hv6nm77g404" path="res://levels/blood_cave/2.png" id="4_jx8je"]
+[ext_resource type="Texture2D" uid="uid://cfa1hy4itaopj" path="res://levels/blood_cave/1.png" id="5_lx5fi"]
+[ext_resource type="Texture2D" uid="uid://cl0r7ewqa0frs" path="res://levels/blood_cave/0.png" id="6_xepsu"]
+[ext_resource type="Texture2D" uid="uid://r0ahke7xybbe" path="res://levels/blood_cave/5-scaled-red.png" id="7_j30f8"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="background" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+texture = ExtResource("1_wpu3v")
+centered = false
+
+[node name="city4" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city4"]
+texture = ExtResource("2_brm7l")
+centered = false
+
+[node name="city3" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city3"]
+texture = ExtResource("3_eom7h")
+centered = false
+
+[node name="city2" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city2"]
+texture = ExtResource("4_jx8je")
+centered = false
+
+[node name="city1" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city1"]
+texture = ExtResource("5_lx5fi")
+centered = false
+
+[node name="city5" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="city5"]
+texture = ExtResource("6_xepsu")
+centered = false
+
+[node name="ground" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ground"]
+texture = ExtResource("7_j30f8")
+centered = false

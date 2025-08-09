@@ -18,7 +18,7 @@ texture = ExtResource("1_ig631")
 centered = false
 
 [node name="city4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="city4"]

@@ -1,23 +1,21 @@
 [gd_scene load_steps=12 format=3 uid="uid://ctvhajonytf2u"]
 
 [ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://player/blood_demon.tscn" id="1_8uh7m"]
-[ext_resource type="PackedScene" uid="uid://bxugbu6iecm8w" path="res://levels/desert/desert.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://dbp82hg2oajy3" path="res://enemies/ghost/ghost.tscn" id="5_g14j6"]
 [ext_resource type="PackedScene" uid="uid://dvcoy03gv6p00" path="res://levels/smog/smog.tscn" id="5_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost_2.tscn" id="6_g14j6"]
 [ext_resource type="PackedScene" uid="uid://b0ixljid5qfks" path="res://enemies/ghost/ghost_3.tscn" id="7_ehkex"]
 [ext_resource type="PackedScene" uid="uid://bd76eaexgukph" path="res://ui/ui.tscn" id="7_vbegm"]
+[ext_resource type="PackedScene" uid="uid://b3tshyceodrw1" path="res://levels/wasteland/wasteland.tscn" id="8_77dp3"]
 [ext_resource type="PackedScene" uid="uid://dpmw1h4xdj2s5" path="res://enemies/skeleton/skeleton.tscn" id="8_ehkex"]
 [ext_resource type="PackedScene" uid="uid://dmt2x14lxd0o5" path="res://enemies/skeleton/skeleton_2.tscn" id="9_xersf"]
-[ext_resource type="PackedScene" uid="uid://fci0defyb286" path="res://enemies/enemy_factory/random_enemy_spawner.tscn" id="10_00tp4"]
+[ext_resource type="PackedScene" uid="uid://dmqgiyj4r68yh" path="res://levels/blood_cave/blood_cave.tscn" id="11_5tkv4"]
 [ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion_small.tscn" id="11_77dp3"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_8uh7m")]
-
-[node name="ghost_2_spawner" parent="." instance=ExtResource("10_00tp4")]
-position = Vector2(1181, 415)
+[node name="ParallaxBackground" parent="." instance=ExtResource("8_77dp3")]
+visible = false
 
 [node name="ui" parent="." instance=ExtResource("7_vbegm")]
 
@@ -42,3 +40,5 @@ position = Vector2(1871, 509)
 
 [node name="HP_Potion" parent="." instance=ExtResource("11_77dp3")]
 position = Vector2(442, 564)
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource("11_5tkv4")]
