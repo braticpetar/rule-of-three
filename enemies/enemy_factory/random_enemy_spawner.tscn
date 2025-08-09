@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="3_nkwkc"]
 [ext_resource type="Texture2D" uid="uid://d1dbp8mwcwlcn" path="res://enemies/enemy_factory/ghost_spawner.png" id="4_6yb2x"]
 [ext_resource type="PackedScene" uid="uid://b0ixljid5qfks" path="res://enemies/ghost/ghost_3.tscn" id="4_v5tpc"]
-[ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion.tscn" id="5_3so0o"]
+[ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion_small.tscn" id="5_3so0o"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_v5tpc"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_bgnb7"]
 
@@ -61,7 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwu6q"]
-size = Vector2(61.1106, 121.202)
+size = Vector2(248.573, 121.202)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y467j"]
 bg_color = Color(0, 0, 0, 1)
@@ -97,7 +97,8 @@ metadata/_custom_type_script = "uid://c71w3orp4rv71"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHurtBox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(40.7288, 7.46878)
+position = Vector2(-53.0026, 7.46878)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kwu6q")
 debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
@@ -115,16 +116,3 @@ value = 1.0
 show_percentage = false
 script = ExtResource("6_bgnb7")
 enemy = NodePath("..")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ProgressBar"]
-texture_filter = 1
-offset_left = 62.0
-offset_top = -46.0
-offset_right = 279.0
-offset_bottom = -6.0
-scale = Vector2(1.15924, 2.02739)
-text = "SPAWN"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-visible_characters_behavior = 3

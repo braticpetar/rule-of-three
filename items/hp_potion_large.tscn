@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1km5yeigh5v8"]
+
+[ext_resource type="Script" uid="uid://cxpwdrojiw0we" path="res://items/hp_potion.gd" id="1_epo3v"]
+[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="2_vs2hq"]
+[ext_resource type="Texture2D" uid="uid://lydashaht3or" path="res://items/potion.png" id="3_gl8ss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no3gd"]
+size = Vector2(15.0445, 28.8224)
+
+[sub_resource type="Animation" id="Animation_e0qrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_tcpqm"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 5), Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_no3gd"]
+_data = {
+&"RESET": SubResource("Animation_e0qrs"),
+&"default": SubResource("Animation_tcpqm")
+}
+
+[node name="HP_Potion_Large" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_epo3v")
+
+[node name="CustomHitBox" type="Area2D" parent="."]
+position = Vector2(-6, 2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("2_vs2hq")
+damage = -80
+metadata/_custom_type_script = "uid://b1u1246plg80p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHitBox"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_no3gd")
+debug_color = Color(0.994338, 2.31028e-06, 0.553273, 0.675)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gl8ss")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_no3gd")
+}
+autoplay = "default"
+
+[connection signal="area_entered" from="CustomHitBox" to="." method="_on_custom_hit_box_area_entered"]

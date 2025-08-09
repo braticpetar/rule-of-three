@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmw1h4xdj2s5" path="res://enemies/skeleton/skeleton.tscn" id="8_ehkex"]
 [ext_resource type="PackedScene" uid="uid://dmt2x14lxd0o5" path="res://enemies/skeleton/skeleton_2.tscn" id="9_xersf"]
 [ext_resource type="PackedScene" uid="uid://fci0defyb286" path="res://enemies/enemy_factory/random_enemy_spawner.tscn" id="10_00tp4"]
-[ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion.tscn" id="11_77dp3"]
+[ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion_small.tscn" id="11_77dp3"]
 
 [node name="Node2D" type="Node2D"]
 
