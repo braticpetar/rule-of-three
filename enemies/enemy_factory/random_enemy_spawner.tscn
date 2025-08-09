@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://fci0defyb286"]
+[gd_scene load_steps=20 format=3 uid="uid://fci0defyb286"]
 
 [ext_resource type="Script" uid="uid://ckedutt1c3iyk" path="res://enemies/enemy_factory/enemy_spawner.gd" id="1_012vg"]
 [ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost_2.tscn" id="2_afrys"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2r7devsx4r0v" path="res://enemies/enemy_factory/enemy_factory.tscn" id="3_nkwkc"]
 [ext_resource type="Texture2D" uid="uid://d1dbp8mwcwlcn" path="res://enemies/enemy_factory/ghost_spawner.png" id="4_6yb2x"]
 [ext_resource type="PackedScene" uid="uid://b0ixljid5qfks" path="res://enemies/ghost/ghost_3.tscn" id="4_v5tpc"]
+[ext_resource type="PackedScene" uid="uid://dv7es66cgcf6p" path="res://items/hp_potion.tscn" id="5_3so0o"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="5_v5tpc"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="6_bgnb7"]
 
@@ -75,6 +76,7 @@ border_color = Color(0, 0.490196, 0.396078, 0)
 script = ExtResource("1_012vg")
 enemy_factory = NodePath("EnemyFactory")
 enemy_scenes = Array[PackedScene]([ExtResource("2_nkwkc"), ExtResource("2_afrys"), ExtResource("4_v5tpc")])
+drop_item = ExtResource("5_3so0o")
 
 [node name="EnemyFactory" parent="." instance=ExtResource("3_nkwkc")]
 

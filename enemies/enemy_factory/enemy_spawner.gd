@@ -11,6 +11,7 @@ signal health_changed
 @export var health: int = 200
 @export var min_spawn_interval: float = 1.0
 @export var max_spawn_interval: float = 5.0
+@export var drop_item: PackedScene
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -49,10 +50,19 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	
 	if health <= 0:
+		if drop_item:
+			call_deferred("_spawn_drop_item")
 		queue_free() # Safely remove node from the tree
 	else:
 		health_changed.emit() # Emit the signal to update progress bar
 		flash_white() 
+
+func _spawn_drop_item():
+	var item_instance = drop_item.instantiate()
+	item_instance.global_position.x = global_position.x
+	item_instance.global_position.y = PlayerSingleton.get_player_position().y
+	get_tree().current_scene.add_child(item_instance)
+
 
 # Flash white then return to normal
 func flash_white(duration := 0.3) -> void:
