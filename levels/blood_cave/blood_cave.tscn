@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmqgiyj4r68yh"]
+[gd_scene load_steps=9 format=3 uid="uid://dmqgiyj4r68yh"]
 
 [ext_resource type="Texture2D" uid="uid://dwqwpdn85ddja" path="res://levels/blood_cave/BG.png" id="1_wpu3v"]
 [ext_resource type="Texture2D" uid="uid://cu4n6h5dibe1b" path="res://levels/blood_cave/4.png" id="2_brm7l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfa1hy4itaopj" path="res://levels/blood_cave/1.png" id="5_lx5fi"]
 [ext_resource type="Texture2D" uid="uid://cl0r7ewqa0frs" path="res://levels/blood_cave/0.png" id="6_xepsu"]
 [ext_resource type="Texture2D" uid="uid://r0ahke7xybbe" path="res://levels/blood_cave/5-scaled-red.png" id="7_j30f8"]
+[ext_resource type="AudioStream" uid="uid://hmm1ehs6xma" path="res://sounds/dnb-liquid.mp3" id="8_brm7l"]
 
 [node name="BloodCave" type="ParallaxBackground"]
 
@@ -69,3 +70,8 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ground"]
 texture = ExtResource("7_j30f8")
 centered = false
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_brm7l")
+volume_db = -17.862
+autoplay = true

@@ -20,7 +20,8 @@ var previous_color
 @onready var attack_area = $AttackingArea
 @onready var health_bar = $ProgressBar
 @onready var collision_shape = $CollisionShape2D
-
+@onready var take_damage_sfx: AudioStreamPlayer2D = $sounds/take_damage
+@onready var death_sfx: AudioStreamPlayer2D = $sounds/death
 
 
 func _ready() -> void:
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if state_machine.current_state.get_state_name() != EnemyDeathState.state_name and health <= 0:
+		death_sfx.play()
 		state_machine.transition(EnemyDeathState.state_name)
 
 func _physics_process(delta: float) -> void:
@@ -50,6 +52,7 @@ func handle_facing() -> void:
 
 func take_damage(amount: int) -> void:
 	flash_white()
+	take_damage_sfx.play()
 	health -= amount
 	health_changed.emit()
 	print(health)

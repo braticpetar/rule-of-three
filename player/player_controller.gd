@@ -22,6 +22,13 @@ var _attacking = false
 @onready var boxes = $Boxes
 @onready var light_sword_hitbox = $Boxes/CustomHitBoxLight/CollisionShape2D
 @onready var heavy_sword_hitbox = $Boxes/CustomHitBoxHard/CollisionShape2D
+@onready var hurtbox: CollisionShape2D = $Boxes/CustomHurtBox/CollisionShape2D
+
+########################
+#### Sounds
+@onready var heal: AudioStreamPlayer2D = $sounds/heal
+@onready var death: AudioStreamPlayer2D = $sounds/death
+
 
 ########################
 #### Main Functions 
@@ -99,6 +106,7 @@ func take_damage(amount: int) -> void:
 		flash_red()
 
 	if PlayerSingleton.health <= 0:
+		hurtbox.set_deferred("disabled", true)
 		die()
 	
 func flash_white(duration := 0.3) -> void:
@@ -107,11 +115,15 @@ func flash_white(duration := 0.3) -> void:
 	animation.modulate = Color(1, 1, 1, 1)
 
 func flash_red(duration:= 0.3) -> void:
+	#sfx.stream = heal_sound
+	heal.play()
 	animation.modulate = Color(1.0, 0.196, 0.196)
 	await get_tree().create_timer(duration).timeout
 	animation.modulate = Color(1, 1, 1, 1)
 		
 func die():
+	death.play()
+	
 	var death_screen = preload("res://ui/death_screen.tscn").instantiate()
 	var ui = get_tree().current_scene.get_node("ui")
 	ui.add_child(death_screen)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://bvli3xctfxair"]
+[gd_scene load_steps=51 format=3 uid="uid://bvli3xctfxair"]
 
 [ext_resource type="Script" uid="uid://cng3lployx2r" path="res://player/player_controller.gd" id="1_aolgh"]
 [ext_resource type="Texture2D" uid="uid://dcewy3yb3xaob" path="res://player/blood-demon.png" id="1_jwvdf"]
 [ext_resource type="Script" uid="uid://jmnb741sas32" path="res://core/custom_hurt_box_player.gd" id="3_1ug5r"]
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_n604i"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="4_58fft"]
+[ext_resource type="AudioStream" uid="uid://ukgx5vq4kp7f" path="res://sounds/heal.mp3" id="6_0vdlb"]
+[ext_resource type="AudioStream" uid="uid://dhfej6ricujqa" path="res://sounds/monster-growl.mp3" id="7_ncfgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7gcp"]
 atlas = ExtResource("1_jwvdf")
@@ -395,6 +397,14 @@ script = ExtResource("3_n604i")
 offset = Vector2(330, -205)
 process_callback = 0
 editor_draw_limits = true
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="heal" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("6_0vdlb")
+
+[node name="death" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("7_ncfgy")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Boxes/CustomHurtBox" to="." method="_on_custom_hurt_box_body_entered"]

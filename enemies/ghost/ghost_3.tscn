@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b0ixljid5qfks"]
+[gd_scene load_steps=48 format=3 uid="uid://b0ixljid5qfks"]
 
 [ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_gqvti"]
 [ext_resource type="Texture2D" uid="uid://6itk7hh2a45j" path="res://enemies/ghost/ghost-Appear.png" id="2_vu6t5"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="8_laq60"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_d8lup"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_0tgej"]
+[ext_resource type="AudioStream" uid="uid://t6hr2vkhngq3" path="res://sounds/air-blow.mp3" id="11_vu6t5"]
+[ext_resource type="AudioStream" uid="uid://de8bqivo1t6kc" path="res://sounds/popping.mp3" id="12_q3lah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jj1k"]
 size = Vector2(23.5, 46.8912)
@@ -365,6 +367,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 3
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="take_damage" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("11_vu6t5")
+
+[node name="death" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("12_q3lah")
 
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]

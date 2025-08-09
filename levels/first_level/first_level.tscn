@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr72xmgbrdxki"]
+
+[ext_resource type="Script" uid="uid://dyeyj142uwkhg" path="res://levels/first_level/first_level.gd" id="1_4wsg7"]
+[ext_resource type="PackedScene" uid="uid://b3tshyceodrw1" path="res://levels/wasteland/wasteland.tscn" id="1_ef27y"]
+[ext_resource type="PackedScene" uid="uid://dvcoy03gv6p00" path="res://levels/smog/smog.tscn" id="2_4cp7s"]
+[ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://player/blood_demon.tscn" id="2_alaxh"]
+[ext_resource type="AudioStream" uid="uid://bbx6n72achs0p" path="res://sounds/pulse-of-terror.mp3" id="4_n8iep"]
+
+[node name="First Level" type="Node2D"]
+script = ExtResource("1_4wsg7")
+
+[node name="wasteland" parent="." instance=ExtResource("1_ef27y")]
+
+[node name="Blood Demon" parent="." instance=ExtResource("2_alaxh")]
+
+[node name="smog" parent="." instance=ExtResource("2_4cp7s")]
+
+[node name="Tension" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(300, 563)
+stream = ExtResource("4_n8iep")
+volume_db = 10.895
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(300, 563)
+volume_db = 10.895
+
+[connection signal="finished" from="Tension" to="." method="_on_tension_finished"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

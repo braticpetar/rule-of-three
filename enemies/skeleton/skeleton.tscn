@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dpmw1h4xdj2s5"]
+[gd_scene load_steps=69 format=3 uid="uid://dpmw1h4xdj2s5"]
 
 [ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_8ytsa"]
 [ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="2_2b7ve"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_o2orx"]
 [ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="4_ybkpd"]
 [ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="5_bjy87"]
+[ext_resource type="AudioStream" uid="uid://dsmd2qthr4j7i" path="res://sounds/bone-crack.mp3" id="7_o2orx"]
+[ext_resource type="AudioStream" uid="uid://bto2xjg0rqxld" path="res://sounds/skeleton-dying.mp3" id="8_ybkpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jj1k"]
 size = Vector2(23.5, 46.8912)
@@ -530,6 +532,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 3
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="take_damage" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("7_o2orx")
+
+[node name="death" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("8_ybkpd")
 
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]

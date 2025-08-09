@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://3t8sbyudby22" path="res://levels/wasteland/WCP_5.png" id="5_ivnir"]
 [ext_resource type="Texture2D" uid="uid://2lym6igltu3q" path="res://levels/wasteland/5-scaled-gray.png" id="6_ld1nf"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="wasteland" type="ParallaxBackground"]
 
 [node name="background" type="ParallaxLayer" parent="."]
 texture_filter = 1
