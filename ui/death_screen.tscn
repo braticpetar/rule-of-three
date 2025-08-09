@@ -9,9 +9,14 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(16.7086, 31.3547)
+offset_left = 150.0
+offset_top = 117.0
+offset_right = 226.0
+offset_bottom = 140.0
+scale = Vector2(12.0837, 20.6652)
+theme_override_colors/font_color = Color(95.028, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(57.459, 0, 0, 1)
 text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
