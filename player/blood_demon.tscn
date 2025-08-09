@@ -344,6 +344,7 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("4_58fft")
+damage = 10
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/CustomHitBoxLight"]
@@ -360,7 +361,7 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("4_58fft")
-damage = 2
+damage = 20
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/CustomHitBoxHard"]

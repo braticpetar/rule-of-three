@@ -3,7 +3,7 @@ extends Node
 signal health_changed
 
 var player: CharacterBody2D = null
-var health = 10
+var health = 100
 
 
 func get_player_position() -> Vector2:

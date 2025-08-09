@@ -270,7 +270,7 @@ border_color = Color(0, 0.490196, 0.396078, 0)
 scale = Vector2(2, 2)
 collision_layer = 128
 script = ExtResource("1_qbayn")
-health = 3
+health = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -325,6 +325,7 @@ scale = Vector2(0.998253, 0.884367)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("9_qbayn")
+damage = 5
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHitBox"]
@@ -345,12 +346,27 @@ offset_right = 14.0
 offset_bottom = -25.5
 theme_override_styles/background = SubResource("StyleBoxFlat_7jj1k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rr3aj")
-max_value = 3.0
+max_value = 30.0
 step = 1.0
 value = 1.0
 show_percentage = false
 script = ExtResource("10_qbayn")
 enemy = NodePath("..")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgressBar"]
+texture_filter = 1
+offset_left = -1.5
+offset_top = -9.0
+offset_right = 184.5
+offset_bottom = 31.0
+scale = Vector2(0.157061, 0.311619)
+text = "Soulless Ghostly Wanderer"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters = 33
+visible_characters_behavior = 3
+visible_ratio = 1.43478
 
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]
