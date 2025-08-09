@@ -9,6 +9,8 @@ enum Facing {
 
 @export var _facing: Facing = Facing.RIGHT
 @export var health = 5
+@export var speed = 10
+var previous_color
 
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
@@ -19,7 +21,10 @@ enum Facing {
 @onready var health_bar = $ProgressBar
 @onready var collision_shape = $CollisionShape2D
 
+
+
 func _ready() -> void:
+	previous_color = animation.get_modulate()
 	var states: Array[State] = [EnemyIdleState.new(self), EnemyDeathState.new(self), EnemyAttackingState.new(self), EnemyChasingState.new(self)]
 	state_machine.start_machine(states)
 
@@ -44,9 +49,9 @@ func handle_facing() -> void:
 
 
 func take_damage(amount: int) -> void:
+	flash_white()
 	health -= amount
 	health_changed.emit()
-	flash_white()
 	print(health)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -58,7 +63,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func flash_white(duration := 0.3) -> void:
 	animation.modulate = Color(123, 219, 71)
 	await get_tree().create_timer(duration).timeout
-	animation.modulate = Color(1, 1, 1, 1)
+	animation.modulate = previous_color
 
 
 func _on_chasing_area_body_entered(_body) -> void:

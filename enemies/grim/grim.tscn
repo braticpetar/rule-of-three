@@ -664,9 +664,7 @@ text = "Grim the Plague Bringer"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-visible_characters = 33
 visible_characters_behavior = 3
-visible_ratio = 1.43478
 
 [connection signal="body_entered" from="ChasingArea" to="." method="_on_chasing_area_body_entered"]
 [connection signal="body_exited" from="ChasingArea" to="." method="_on_chasing_area_body_exited"]

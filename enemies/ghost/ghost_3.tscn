@@ -1,15 +1,15 @@
-[gd_scene load_steps=46 format=3 uid="uid://dbp82hg2oajy3"]
+[gd_scene load_steps=46 format=3 uid="uid://b0ixljid5qfks"]
 
-[ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_qbayn"]
-[ext_resource type="Texture2D" uid="uid://6itk7hh2a45j" path="res://enemies/ghost/ghost-Appear.png" id="2_v2tme"]
-[ext_resource type="Texture2D" uid="uid://c3ydg1141utcx" path="res://enemies/ghost/ghost-Idle.png" id="2_ytihs"]
-[ext_resource type="Texture2D" uid="uid://cd4ns8wxh7k75" path="res://enemies/ghost/ghost-Shriek.png" id="3_eqcb8"]
-[ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="3_v2tme"]
-[ext_resource type="Texture2D" uid="uid://dah6q1xardiwk" path="res://enemies/ghost/ghost-Chase.png" id="4_566vf"]
-[ext_resource type="Texture2D" uid="uid://tpx227rrtkeq" path="res://enemies/ghost/ghost-Vanish.png" id="6_slcon"]
-[ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="9_d6rty"]
-[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_qbayn"]
-[ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_qbayn"]
+[ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_gqvti"]
+[ext_resource type="Texture2D" uid="uid://6itk7hh2a45j" path="res://enemies/ghost/ghost-Appear.png" id="2_vu6t5"]
+[ext_resource type="Texture2D" uid="uid://cd4ns8wxh7k75" path="res://enemies/ghost/ghost-Shriek.png" id="3_q3lah"]
+[ext_resource type="Texture2D" uid="uid://c3ydg1141utcx" path="res://enemies/ghost/ghost-Idle.png" id="4_3wyf7"]
+[ext_resource type="Texture2D" uid="uid://dah6q1xardiwk" path="res://enemies/ghost/ghost-Chase.png" id="5_pa7uw"]
+[ext_resource type="Texture2D" uid="uid://tpx227rrtkeq" path="res://enemies/ghost/ghost-Vanish.png" id="6_7a1me"]
+[ext_resource type="Script" uid="uid://c71w3orp4rv71" path="res://core/custom_hurt_box_enemy.gd" id="7_jo22q"]
+[ext_resource type="Script" uid="uid://oh6appk8t360" path="res://core/state_machine.gd" id="8_laq60"]
+[ext_resource type="Script" uid="uid://b1u1246plg80p" path="res://core/custom_hit_box.gd" id="9_d8lup"]
+[ext_resource type="Script" uid="uid://trmwdnq8sifh" path="res://enemies/enemy_factory/enemy_healthbar.gd" id="10_0tgej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jj1k"]
 size = Vector2(23.5, 46.8912)
@@ -18,115 +18,115 @@ size = Vector2(23.5, 46.8912)
 size = Vector2(153.179, 38.3642)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32mva"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(0, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muif3"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(64, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01axk"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(128, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obpuw"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4twp"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(256, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpbrr"]
-atlas = ExtResource("2_v2tme")
+atlas = ExtResource("2_vu6t5")
 region = Rect2(320, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5d8w"]
-atlas = ExtResource("3_eqcb8")
+atlas = ExtResource("3_q3lah")
 region = Rect2(0, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qls5"]
-atlas = ExtResource("3_eqcb8")
+atlas = ExtResource("3_q3lah")
 region = Rect2(64, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypcwk"]
-atlas = ExtResource("3_eqcb8")
+atlas = ExtResource("3_q3lah")
 region = Rect2(128, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hmglg"]
-atlas = ExtResource("3_eqcb8")
+atlas = ExtResource("3_q3lah")
 region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_566vf"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(0, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqcb8"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(64, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_slcon"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(128, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6rty"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbayn"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(256, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jj1k"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(320, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rr3aj"]
-atlas = ExtResource("2_ytihs")
+atlas = ExtResource("4_3wyf7")
 region = Rect2(384, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kqxl"]
-atlas = ExtResource("4_566vf")
+atlas = ExtResource("5_pa7uw")
 region = Rect2(0, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbljs"]
-atlas = ExtResource("4_566vf")
+atlas = ExtResource("5_pa7uw")
 region = Rect2(64, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghypc"]
-atlas = ExtResource("4_566vf")
+atlas = ExtResource("5_pa7uw")
 region = Rect2(128, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8463"]
-atlas = ExtResource("4_566vf")
+atlas = ExtResource("5_pa7uw")
 region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_niedi"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(0, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbukv"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(64, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odhvd"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(128, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6342t"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqr1d"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(256, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wv2ti"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(320, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no75s"]
-atlas = ExtResource("6_slcon")
+atlas = ExtResource("6_7a1me")
 region = Rect2(384, 0, 64, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32mva"]
@@ -266,12 +266,12 @@ shadow_size = 3
 bg_color = Color(0.704027, 0, 0.175111, 1)
 border_color = Color(0, 0.490196, 0.396078, 0)
 
-[node name="Ghost" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+[node name="Ghost_3" type="CharacterBody2D"]
+scale = Vector2(3, 3)
 collision_layer = 128
-script = ExtResource("1_qbayn")
-health = 30
-speed = 50
+script = ExtResource("1_gqvti")
+health = 60
+speed = 70
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -297,6 +297,7 @@ scale = Vector2(0.0870289, 0.544437)
 shape = SubResource("RectangleShape2D_slcon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(7.183, 7.735, 96.686, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_32mva")
 animation = &"vanish"
@@ -305,7 +306,7 @@ animation = &"vanish"
 visible = false
 collision_layer = 8
 collision_mask = 4
-script = ExtResource("9_d6rty")
+script = ExtResource("7_jo22q")
 metadata/_custom_type_script = "uid://c71w3orp4rv71"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CustomHurtBox"]
@@ -316,13 +317,13 @@ shape = SubResource("CapsuleShape2D_d6rty")
 debug_color = Color(0.922626, 0, 0.262845, 0.42)
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_v2tme")
+script = ExtResource("8_laq60")
 
 [node name="CustomHitBox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
-script = ExtResource("9_qbayn")
-damage = 3
+script = ExtResource("9_d8lup")
+damage = 9
 metadata/_custom_type_script = "uid://b1u1246plg80p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomHitBox"]
@@ -341,11 +342,11 @@ offset_right = 14.0
 offset_bottom = -25.5
 theme_override_styles/background = SubResource("StyleBoxFlat_7jj1k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rr3aj")
-max_value = 30.0
+max_value = 60.0
 step = 1.0
 value = 1.0
 show_percentage = false
-script = ExtResource("10_qbayn")
+script = ExtResource("10_0tgej")
 enemy = NodePath("..")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ProgressBar"]
@@ -356,7 +357,7 @@ offset_top = -8.5
 offset_right = 201.5
 offset_bottom = 31.5
 scale = Vector2(0.207511, 0.29571)
-text = "Soulless Ghostly Wanderer"
+text = "Enlighted Ghostly Wanderer"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

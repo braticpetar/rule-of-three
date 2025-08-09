@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvhajonytf2u"]
+[gd_scene load_steps=10 format=3 uid="uid://ctvhajonytf2u"]
 
 [ext_resource type="PackedScene" uid="uid://bvli3xctfxair" path="res://player/blood_demon.tscn" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://bxugbu6iecm8w" path="res://levels/desert/desert.tscn" id="2_8uh7m"]
-[ext_resource type="PackedScene" uid="uid://bsddhnj54dh5p" path="res://enemies/enemy_factory/ghost_spawner.tscn" id="5_g14j6"]
+[ext_resource type="PackedScene" uid="uid://dbp82hg2oajy3" path="res://enemies/ghost/ghost.tscn" id="5_g14j6"]
 [ext_resource type="PackedScene" uid="uid://dvcoy03gv6p00" path="res://levels/smog/smog.tscn" id="5_ykrsh"]
-[ext_resource type="PackedScene" uid="uid://bj8xri4wvnmxn" path="res://enemies/enemy_factory/grim_spawner.tscn" id="6_g14j6"]
+[ext_resource type="PackedScene" uid="uid://dy0ijraov2rrb" path="res://enemies/ghost/ghost_2.tscn" id="6_g14j6"]
+[ext_resource type="PackedScene" uid="uid://b0ixljid5qfks" path="res://enemies/ghost/ghost_3.tscn" id="7_ehkex"]
 [ext_resource type="PackedScene" uid="uid://bd76eaexgukph" path="res://ui/ui.tscn" id="7_vbegm"]
+[ext_resource type="PackedScene" uid="uid://dpmw1h4xdj2s5" path="res://enemies/skeleton/skeleton.tscn" id="8_ehkex"]
+[ext_resource type="PackedScene" uid="uid://dmt2x14lxd0o5" path="res://enemies/skeleton/skeleton_2.tscn" id="9_xersf"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,12 +16,21 @@
 
 [node name="ui" parent="." instance=ExtResource("7_vbegm")]
 
-[node name="grim_spawner" parent="." instance=ExtResource("6_g14j6")]
-position = Vector2(1954, 438)
-
-[node name="ghost_spawner" parent="." instance=ExtResource("5_g14j6")]
-position = Vector2(-741, 440)
-
 [node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
 
 [node name="smog" parent="." instance=ExtResource("5_ykrsh")]
+
+[node name="Ghost" parent="." instance=ExtResource("5_g14j6")]
+position = Vector2(581, 563)
+
+[node name="Ghost_2" parent="." instance=ExtResource("6_g14j6")]
+position = Vector2(709, 565)
+
+[node name="Ghost_3" parent="." instance=ExtResource("7_ehkex")]
+position = Vector2(852, 551)
+
+[node name="Skeleton" parent="." instance=ExtResource("8_ehkex")]
+position = Vector2(1932, 534)
+
+[node name="Skeleton_2" parent="." instance=ExtResource("9_xersf")]
+position = Vector2(1871, 509)
