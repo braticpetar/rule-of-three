@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://dy0ijraov2rrb"]
 
-[ext_resource type="Script" uid="uid://hj8j53gej2er" path="res://enemies/ghost/ghost_controller.gd" id="1_eqcb8"]
+[ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_qbayn"]
 [ext_resource type="Texture2D" uid="uid://6itk7hh2a45j" path="res://enemies/ghost/ghost-Appear.png" id="2_v2tme"]
 [ext_resource type="Texture2D" uid="uid://c3ydg1141utcx" path="res://enemies/ghost/ghost-Idle.png" id="2_ytihs"]
 [ext_resource type="Texture2D" uid="uid://cd4ns8wxh7k75" path="res://enemies/ghost/ghost-Shriek.png" id="3_eqcb8"]
@@ -269,7 +269,9 @@ border_color = Color(0, 0.490196, 0.396078, 0)
 [node name="Ghost" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 128
-script = ExtResource("1_eqcb8")
+script = ExtResource("1_qbayn")
+_facing = 0
+health = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -327,7 +329,7 @@ position = Vector2(-136.5, 33)
 scale = Vector2(-1.33668, 0.82794)
 shape = SubResource("RectangleShape2D_qbayn")
 disabled = true
-debug_color = Color(0.736666, 0.395529, 0.659666, 0.42)
+debug_color = Color(0.994338, 2.31028e-06, 0.553273, 0.675)
 
 [node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy")]
 texture_filter = 1

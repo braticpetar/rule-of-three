@@ -1,4 +1,4 @@
-class_name GrimController extends CharacterBody2D
+class_name EnemyController extends CharacterBody2D
 
 signal health_changed
 
@@ -7,8 +7,8 @@ enum Facing {
 	RIGHT
 }
 
-var _facing: Facing = Facing.RIGHT
-var health = 5
+@export var _facing: Facing = Facing.RIGHT
+@export var health = 5
 
 @onready var animation = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
@@ -20,12 +20,12 @@ var health = 5
 @onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
-	var states: Array[State] = [GrimIdleState.new(self), GrimDeathState.new(self), GrimAttackingState.new(self), GrimChasingState.new(self)]
+	var states: Array[State] = [EnemyIdleState.new(self), EnemyDeathState.new(self), EnemyAttackingState.new(self), EnemyChasingState.new(self)]
 	state_machine.start_machine(states)
 
 func _process(delta: float) -> void:
-	if state_machine.current_state.get_state_name() != GrimDeathState.state_name and health <= 0:
-		state_machine.transition(GrimDeathState.state_name)
+	if state_machine.current_state.get_state_name() != EnemyDeathState.state_name and health <= 0:
+		state_machine.transition(EnemyDeathState.state_name)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -52,7 +52,7 @@ func take_damage(amount: int) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	var current = state_machine.current_state.get_state_name()
 	# Only if player dissolved, transition to condense
-	if current == GrimDeathState.state_name:
+	if current == EnemyDeathState.state_name:
 		queue_free()
 		
 func flash_white(duration := 0.3) -> void:
@@ -62,15 +62,15 @@ func flash_white(duration := 0.3) -> void:
 
 
 func _on_chasing_area_body_entered(_body) -> void:
-	state_machine.transition(GrimChasingState.state_name)
+	state_machine.transition(EnemyChasingState.state_name)
 
 func _on_chasing_area_body_exited(_body: Node2D) -> void:
-	state_machine.transition(GrimIdleState.state_name)
+	state_machine.transition(EnemyIdleState.state_name)
 
 
 func _on_attacking_area_body_entered(_body: Node2D) -> void:
-	state_machine.transition(GrimAttackingState.state_name)
+	state_machine.transition(EnemyAttackingState.state_name)
 
 
 func _on_attacking_area_body_exited(_body: Node2D) -> void:
-	state_machine.transition(GrimChasingState.state_name)
+	state_machine.transition(EnemyChasingState.state_name)

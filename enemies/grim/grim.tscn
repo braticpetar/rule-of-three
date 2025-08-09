@@ -1,6 +1,6 @@
 [gd_scene load_steps=90 format=3 uid="uid://bfe2btv2eedcn"]
 
-[ext_resource type="Script" uid="uid://cpj1l5xjvuf3d" path="res://enemies/grim/grim_controller.gd" id="1_54kvc"]
+[ext_resource type="Script" uid="uid://ddtoo4gfinv1b" path="res://enemies/enemy_states/enemy_controller.gd" id="1_54kvc"]
 [ext_resource type="Texture2D" uid="uid://cv1dfcfak7g1t" path="res://enemies/grim/Grim Spawn-f3a1.png" id="2_54kvc"]
 [ext_resource type="Texture2D" uid="uid://bedfarcj3o2j0" path="res://enemies/grim/Grim Attack-f396.png" id="3_54kvc"]
 [ext_resource type="Texture2D" uid="uid://ch4lmy622eg3j" path="res://enemies/grim/Grim Idle-f39c.png" id="4_qx8yq"]
