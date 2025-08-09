@@ -15,6 +15,9 @@
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_8uh7m")]
 
+[node name="ghost_2_spawner" parent="." instance=ExtResource("10_00tp4")]
+position = Vector2(1181, 415)
+
 [node name="ui" parent="." instance=ExtResource("7_vbegm")]
 
 [node name="Blood Demon" parent="." instance=ExtResource("1_8uh7m")]
@@ -35,6 +38,3 @@ position = Vector2(1932, 534)
 
 [node name="Skeleton_2" parent="." instance=ExtResource("9_xersf")]
 position = Vector2(1871, 509)
-
-[node name="ghost_2_spawner" parent="." instance=ExtResource("10_00tp4")]
-position = Vector2(1181, 415)

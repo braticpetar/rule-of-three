@@ -107,9 +107,22 @@ offset_right = 105.0
 offset_bottom = -176.0
 theme_override_styles/background = SubResource("StyleBoxFlat_y467j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p7bsl")
-max_value = 20.0
+max_value = 200.0
 step = 1.0
 value = 1.0
 show_percentage = false
 script = ExtResource("6_bgnb7")
 enemy = NodePath("..")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgressBar"]
+texture_filter = 1
+offset_left = 62.0
+offset_top = -46.0
+offset_right = 279.0
+offset_bottom = -6.0
+scale = Vector2(1.15924, 2.02739)
+text = "SPAWN"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters_behavior = 3
